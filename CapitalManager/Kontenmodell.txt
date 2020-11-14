@@ -1,0 +1,8 @@
+    100% -> Zahlungseingang
+
+10 % -> Spaß
+20 % -> Vermögensaufbau
+15% -> Rücklagen
+55 % -> privates Konto
+
+-> am 1. von privat auf Rücklagen(einstellbar)

@@ -1,0 +1,1 @@
+C:\Users\ldr\AppData\Local\Programs\Python\Python36\Scripts\pyside2-rcc.exe main.qrc -o main_rc.py

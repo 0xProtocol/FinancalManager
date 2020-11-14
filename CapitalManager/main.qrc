@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>fallingmoney.png</file>
+    <file>aarddict.ico</file>
+    <file>imgbin-emojipedia-money-bank-cash-e-currency-7ycZtvjppxT7ifGRXVFiYdzWY_t.jpg</file>
+    <file>0-2194_money-clipart-clipart-collection-free-stacks-of-money.png</file>
+    <file>falling_money_PNG15424.png</file>
+    <file>flare.ico</file>
+    <file>setroubleshoot_icon.ico</file>
+    <file>BrokenSword.ico</file>
+    <file>atom-beta.ico</file>
+  </qresource>
+</RCC>
