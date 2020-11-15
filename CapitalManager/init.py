@@ -22,6 +22,8 @@ class MainWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        #self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.ui.btnDashboard.clicked.connect(self.btnDashboard_Clicked)
         self.ui.btnFormular.clicked.connect(self.btnFormular_Clicked)
         self.ui.btnSettings.clicked.connect(self.btnSettings_Clicked)
@@ -29,7 +31,18 @@ class MainWindow(QMainWindow):
         self.ui.btnSend.clicked.connect(self.btnSend)
         self.ui.btnSend_2.clicked.connect(self.btnSend_2)
         self.ui.btnSpend.clicked.connect(self.btnSpend)
+        self.ui.btn_close.clicked.connect(self.btnClose)
+        self.ui.btn_maximize.clicked.connect(self.btnMaximize)
+        self.ui.btn_minimize.clicked.connect(self.btnMinimize)
 
+
+    def btnClose(self):
+        sys.exit(app.exec_())
+    def btnMaximize(self):
+        # self.showMaximized()
+        print("max")
+    def btnMinimize(self):
+        self.showMinimized()
     def btnDashboard_Clicked(self):
         self.ui.frmDashboard.raise_()
         print("btndash")
