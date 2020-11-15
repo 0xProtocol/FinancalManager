@@ -388,13 +388,13 @@ class Ui_MainWindow(object):
 "	background-color: rgba(255, 170, 0, 150);\n"
 "}")
         self.btn_minimize.setIconSize(QSize(10, 10))
-        self.frame = QFrame(self.centralwidget)
-        self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(0, 0, 1061, 36))
-        self.frame.setStyleSheet(u"background-color: rgb(24, 27, 40);")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.lblcapitalmanager = QLabel(self.frame)
+        self.frameup = QFrame(self.centralwidget)
+        self.frameup.setObjectName(u"frameup")
+        self.frameup.setGeometry(QRect(0, 0, 1061, 36))
+        self.frameup.setStyleSheet(u"background-color: rgb(24, 27, 40);")
+        self.frameup.setFrameShape(QFrame.StyledPanel)
+        self.frameup.setFrameShadow(QFrame.Raised)
+        self.lblcapitalmanager = QLabel(self.frameup)
         self.lblcapitalmanager.setObjectName(u"lblcapitalmanager")
         self.lblcapitalmanager.setGeometry(QRect(20, -7, 171, 51))
         font4 = QFont()
@@ -441,49 +441,120 @@ class Ui_MainWindow(object):
 " border-bottom: 2px solid blue; ")
         self.frmFormular.setFrameShape(QFrame.StyledPanel)
         self.frmFormular.setFrameShadow(QFrame.Raised)
-        self.lblSpendMoney = QLabel(self.frmFormular)
-        self.lblSpendMoney.setObjectName(u"lblSpendMoney")
-        self.lblSpendMoney.setGeometry(QRect(20, 97, 151, 61))
+        self.frameAccountStatistic = QFrame(self.frmFormular)
+        self.frameAccountStatistic.setObjectName(u"frameAccountStatistic")
+        self.frameAccountStatistic.setGeometry(QRect(10, 220, 721, 271))
+        self.frameAccountStatistic.setFrameShape(QFrame.StyledPanel)
+        self.frameAccountStatistic.setFrameShadow(QFrame.Raised)
+        self.pbAccount1 = QProgressBar(self.frameAccountStatistic)
+        self.pbAccount1.setObjectName(u"pbAccount1")
+        self.pbAccount1.setGeometry(QRect(160, 97, 431, 20))
+        self.pbAccount1.setStyleSheet(u"QProgressBar {\n"
+"	\n"
+"	background-color: rgb(98, 114, 164);\n"
+"	color: rgb(200, 200, 200);\n"
+"	border-style: none;\n"
+"	border-radius: 10px;\n"
+"	text-align: center;\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"	border-radius: 10px;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
+        self.pbAccount1.setValue(0)
+        self.lblAccount2 = QLabel(self.frameAccountStatistic)
+        self.lblAccount2.setObjectName(u"lblAccount2")
+        self.lblAccount2.setGeometry(QRect(35, 127, 91, 21))
         font6 = QFont()
         font6.setFamily(u"Segoe UI")
         font6.setPointSize(14)
-        self.lblSpendMoney.setFont(font6)
-        self.lblSpendMoney.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+        self.lblAccount2.setFont(font6)
+        self.lblAccount2.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
 " border-right: 0px solid blue; \n"
 " border-bottom: 0px solid blue; ")
-        self.cbspendmoney = QComboBox(self.frmFormular)
-        self.cbspendmoney.addItem("")
-        self.cbspendmoney.addItem("")
-        self.cbspendmoney.addItem("")
-        self.cbspendmoney.addItem("")
-        self.cbspendmoney.addItem("")
-        self.cbspendmoney.setObjectName(u"cbspendmoney")
-        self.cbspendmoney.setGeometry(QRect(20, 77, 121, 31))
-        self.cbspendmoney.setFont(font)
-        self.cbspendmoney.setStyleSheet(u"background-color: rgb(10,10,10);\n"
-"color: rgb(88, 1, 200);\n"
+        self.lblAccount3 = QLabel(self.frameAccountStatistic)
+        self.lblAccount3.setObjectName(u"lblAccount3")
+        self.lblAccount3.setGeometry(QRect(35, 157, 91, 21))
+        self.lblAccount3.setFont(font6)
+        self.lblAccount3.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
 " border-right: 0px solid blue; \n"
 " border-bottom: 0px solid blue; ")
-        self.cbspendmoney.setEditable(False)
-        self.btnSend_2 = QPushButton(self.frmFormular)
-        self.btnSend_2.setObjectName(u"btnSend_2")
-        self.btnSend_2.setGeometry(QRect(800, 470, 91, 21))
-        self.btnSend_2.setStyleSheet(u"QPushButton{\n"
-"border: 2px solid rgb(37,39,48);\n"
-"border-radius: 10px;\n"
-"color: #FFF;\n"
-"padding-left: 20px;\n"
-"padding-right: 20px;\n"
-"background-color: rgb(34,36,44);\n"
-"color:rgb(0,0,255);\n"
+        self.lblAccount1 = QLabel(self.frameAccountStatistic)
+        self.lblAccount1.setObjectName(u"lblAccount1")
+        self.lblAccount1.setGeometry(QRect(35, 97, 91, 21))
+        self.lblAccount1.setFont(font6)
+        self.lblAccount1.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.pbAccount2 = QProgressBar(self.frameAccountStatistic)
+        self.pbAccount2.setObjectName(u"pbAccount2")
+        self.pbAccount2.setGeometry(QRect(160, 127, 431, 20))
+        self.pbAccount2.setStyleSheet(u"QProgressBar {\n"
+"	\n"
+"	background-color: rgb(98, 114, 164);\n"
+"	color: rgb(200, 200, 200);\n"
+"	border-style: none;\n"
+"	border-radius: 10px;\n"
+"	text-align: center;\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"	border-radius: 10px;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
 "}")
-        self.pbMainAccount = QProgressBar(self.frmFormular)
+        self.pbAccount2.setValue(0)
+        self.lblTotal = QLabel(self.frameAccountStatistic)
+        self.lblTotal.setObjectName(u"lblTotal")
+        self.lblTotal.setGeometry(QRect(30, 237, 91, 21))
+        self.lblTotal.setFont(font6)
+        self.lblTotal.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.lblTotal.setAlignment(Qt.AlignCenter)
+        self.lblMainAccount = QLabel(self.frameAccountStatistic)
+        self.lblMainAccount.setObjectName(u"lblMainAccount")
+        self.lblMainAccount.setGeometry(QRect(20, 62, 121, 21))
+        self.lblMainAccount.setFont(font6)
+        self.lblMainAccount.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.lblAccount4 = QLabel(self.frameAccountStatistic)
+        self.lblAccount4.setObjectName(u"lblAccount4")
+        self.lblAccount4.setGeometry(QRect(35, 187, 91, 21))
+        self.lblAccount4.setFont(font6)
+        self.lblAccount4.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.pbAccount4 = QProgressBar(self.frameAccountStatistic)
+        self.pbAccount4.setObjectName(u"pbAccount4")
+        self.pbAccount4.setGeometry(QRect(160, 187, 431, 20))
+        self.pbAccount4.setStyleSheet(u"QProgressBar {\n"
+"	\n"
+"	background-color: rgb(98, 114, 164);\n"
+"	color: rgb(200, 200, 200);\n"
+"	border-style: none;\n"
+"	border-radius: 10px;\n"
+"	text-align: center;\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"	border-radius: 10px;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
+        self.pbAccount4.setValue(0)
+        self.pbMainAccount = QProgressBar(self.frameAccountStatistic)
         self.pbMainAccount.setObjectName(u"pbMainAccount")
-        self.pbMainAccount.setGeometry(QRect(160, 297, 431, 20))
+        self.pbMainAccount.setGeometry(QRect(160, 67, 431, 20))
         self.pbMainAccount.setStyleSheet(u"QProgressBar {\n"
 "	\n"
 "	background-color: rgb(98, 114, 164);\n"
@@ -498,155 +569,9 @@ class Ui_MainWindow(object):
 "}")
         self.pbMainAccount.setMaximum(100)
         self.pbMainAccount.setValue(0)
-        self.pbAccount2 = QProgressBar(self.frmFormular)
-        self.pbAccount2.setObjectName(u"pbAccount2")
-        self.pbAccount2.setGeometry(QRect(160, 357, 431, 20))
-        self.pbAccount2.setStyleSheet(u"QProgressBar {\n"
-"	\n"
-"	background-color: rgb(98, 114, 164);\n"
-"	color: rgb(200, 200, 200);\n"
-"	border-style: none;\n"
-"	border-radius: 10px;\n"
-"	text-align: center;\n"
-"}\n"
-"QProgressBar::chunk{\n"
-"	border-radius: 10px;\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}")
-        self.pbAccount2.setValue(0)
-        self.pbAccount3 = QProgressBar(self.frmFormular)
-        self.pbAccount3.setObjectName(u"pbAccount3")
-        self.pbAccount3.setGeometry(QRect(160, 387, 431, 20))
-        self.pbAccount3.setStyleSheet(u"QProgressBar {\n"
-"	\n"
-"	background-color: rgb(98, 114, 164);\n"
-"	color: rgb(200, 200, 200);\n"
-"	border-style: none;\n"
-"	border-radius: 10px;\n"
-"	text-align: center;\n"
-"}\n"
-"QProgressBar::chunk{\n"
-"	border-radius: 10px;\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}")
-        self.pbAccount3.setValue(0)
-        self.pbAccount4 = QProgressBar(self.frmFormular)
-        self.pbAccount4.setObjectName(u"pbAccount4")
-        self.pbAccount4.setGeometry(QRect(160, 417, 431, 20))
-        self.pbAccount4.setStyleSheet(u"QProgressBar {\n"
-"	\n"
-"	background-color: rgb(98, 114, 164);\n"
-"	color: rgb(200, 200, 200);\n"
-"	border-style: none;\n"
-"	border-radius: 10px;\n"
-"	text-align: center;\n"
-"}\n"
-"QProgressBar::chunk{\n"
-"	border-radius: 10px;\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}")
-        self.pbAccount4.setValue(0)
-        self.pbAccount1 = QProgressBar(self.frmFormular)
-        self.pbAccount1.setObjectName(u"pbAccount1")
-        self.pbAccount1.setGeometry(QRect(160, 327, 431, 20))
-        self.pbAccount1.setStyleSheet(u"QProgressBar {\n"
-"	\n"
-"	background-color: rgb(98, 114, 164);\n"
-"	color: rgb(200, 200, 200);\n"
-"	border-style: none;\n"
-"	border-radius: 10px;\n"
-"	text-align: center;\n"
-"}\n"
-"QProgressBar::chunk{\n"
-"	border-radius: 10px;\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
-"}")
-        self.pbAccount1.setValue(0)
-        self.lblMainAccount = QLabel(self.frmFormular)
-        self.lblMainAccount.setObjectName(u"lblMainAccount")
-        self.lblMainAccount.setGeometry(QRect(20, 292, 121, 21))
-        self.lblMainAccount.setFont(font6)
-        self.lblMainAccount.setStyleSheet(u"color: rgb(88, 1, 200);\n"
-" border-top: 0px solid blue; \n"
-" border-left: 0px solid blue; \n"
-" border-right: 0px solid blue; \n"
-" border-bottom: 0px solid blue; ")
-        self.lblAccount1 = QLabel(self.frmFormular)
-        self.lblAccount1.setObjectName(u"lblAccount1")
-        self.lblAccount1.setGeometry(QRect(35, 327, 91, 21))
-        self.lblAccount1.setFont(font6)
-        self.lblAccount1.setStyleSheet(u"color: rgb(88, 1, 200);\n"
-" border-top: 0px solid blue; \n"
-" border-left: 0px solid blue; \n"
-" border-right: 0px solid blue; \n"
-" border-bottom: 0px solid blue; ")
-        self.lblAccount2 = QLabel(self.frmFormular)
-        self.lblAccount2.setObjectName(u"lblAccount2")
-        self.lblAccount2.setGeometry(QRect(35, 357, 91, 21))
-        self.lblAccount2.setFont(font6)
-        self.lblAccount2.setStyleSheet(u"color: rgb(88, 1, 200);\n"
-" border-top: 0px solid blue; \n"
-" border-left: 0px solid blue; \n"
-" border-right: 0px solid blue; \n"
-" border-bottom: 0px solid blue; ")
-        self.lblAccount4 = QLabel(self.frmFormular)
-        self.lblAccount4.setObjectName(u"lblAccount4")
-        self.lblAccount4.setGeometry(QRect(35, 417, 91, 21))
-        self.lblAccount4.setFont(font6)
-        self.lblAccount4.setStyleSheet(u"color: rgb(88, 1, 200);\n"
-" border-top: 0px solid blue; \n"
-" border-left: 0px solid blue; \n"
-" border-right: 0px solid blue; \n"
-" border-bottom: 0px solid blue; ")
-        self.lblAccount3 = QLabel(self.frmFormular)
-        self.lblAccount3.setObjectName(u"lblAccount3")
-        self.lblAccount3.setGeometry(QRect(35, 387, 91, 21))
-        self.lblAccount3.setFont(font6)
-        self.lblAccount3.setStyleSheet(u"color: rgb(88, 1, 200);\n"
-" border-top: 0px solid blue; \n"
-" border-left: 0px solid blue; \n"
-" border-right: 0px solid blue; \n"
-" border-bottom: 0px solid blue; ")
-        self.lespend = QLineEdit(self.frmFormular)
-        self.lespend.setObjectName(u"lespend")
-        self.lespend.setGeometry(QRect(170, 119, 141, 21))
-        self.lespend.setFont(font3)
-        self.lespend.setStyleSheet(u"QLineEdit{\n"
-"border: 2px solid rgb(37,39,48);\n"
-"border-radius: 10px;\n"
-"color: #FFF;\n"
-"padding-left: 20px;\n"
-"padding-right: 20px;\n"
-"background-color: rgb(34,36,44);\n"
-"color:rgb(0,0,255);\n"
-"}\n"
-"QLineEdit:hover { border: 2px solid rgb(48,50,62);}QLineEdit:focus{border:2px solid rgb(48,50,60)n}")
-        self.lespend.setAlignment(Qt.AlignCenter)
-        self.btnSpend = QPushButton(self.frmFormular)
-        self.btnSpend.setObjectName(u"btnSpend")
-        self.btnSpend.setGeometry(QRect(330, 118, 91, 21))
-        self.btnSpend.setStyleSheet(u"QPushButton{\n"
-"border: 2px solid rgb(37,39,48);\n"
-"border-radius: 10px;\n"
-"color: #FFF;\n"
-"padding-left: 20px;\n"
-"padding-right: 20px;\n"
-"background-color: rgb(34,36,44);\n"
-"color:rgb(0,0,255);\n"
-"}")
-        self.lblTotal = QLabel(self.frmFormular)
-        self.lblTotal.setObjectName(u"lblTotal")
-        self.lblTotal.setGeometry(QRect(30, 467, 91, 21))
-        self.lblTotal.setFont(font6)
-        self.lblTotal.setStyleSheet(u"color: rgb(88, 1, 200);\n"
-" border-top: 0px solid blue; \n"
-" border-left: 0px solid blue; \n"
-" border-right: 0px solid blue; \n"
-" border-bottom: 0px solid blue; ")
-        self.lblTotal.setAlignment(Qt.AlignCenter)
-        self.pbTotal = QProgressBar(self.frmFormular)
+        self.pbTotal = QProgressBar(self.frameAccountStatistic)
         self.pbTotal.setObjectName(u"pbTotal")
-        self.pbTotal.setGeometry(QRect(160, 470, 431, 20))
+        self.pbTotal.setGeometry(QRect(160, 240, 431, 20))
         self.pbTotal.setStyleSheet(u"QProgressBar {\n"
 "	\n"
 "	background-color: rgb(98, 114, 164);\n"
@@ -660,17 +585,179 @@ class Ui_MainWindow(object):
 "	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(44, 2, 100, 255));\n"
 "}")
         self.pbTotal.setValue(100)
+        self.pbAccount3 = QProgressBar(self.frameAccountStatistic)
+        self.pbAccount3.setObjectName(u"pbAccount3")
+        self.pbAccount3.setGeometry(QRect(160, 157, 431, 20))
+        self.pbAccount3.setStyleSheet(u"QProgressBar {\n"
+"	\n"
+"	background-color: rgb(98, 114, 164);\n"
+"	color: rgb(200, 200, 200);\n"
+"	border-style: none;\n"
+"	border-radius: 10px;\n"
+"	text-align: center;\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"	border-radius: 10px;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
+        self.pbAccount3.setValue(0)
+        self.btnSend_2 = QPushButton(self.frameAccountStatistic)
+        self.btnSend_2.setObjectName(u"btnSend_2")
+        self.btnSend_2.setGeometry(QRect(620, 240, 91, 21))
+        self.btnSend_2.setStyleSheet(u"QPushButton{\n"
+"border: 2px solid rgb(37,39,48);\n"
+"border-radius: 10px;\n"
+"color: #FFF;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"background-color: rgb(34,36,44);\n"
+"color:rgb(0,0,255);\n"
+"}")
+        self.lblAccountStatistic = QLabel(self.frameAccountStatistic)
+        self.lblAccountStatistic.setObjectName(u"lblAccountStatistic")
+        self.lblAccountStatistic.setGeometry(QRect(10, 10, 161, 28))
+        font7 = QFont()
+        font7.setFamily(u"Segoe UI")
+        font7.setPointSize(16)
+        font7.setBold(False)
+        font7.setWeight(50)
+        self.lblAccountStatistic.setFont(font7)
+        self.lblAccountStatistic.setStyleSheet(u"color: rgb(88, 150, 250);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.lblAccountStatistic.setFrameShape(QFrame.NoFrame)
+        self.lblAccountStatistic.setLineWidth(1)
+        self.frame = QFrame(self.frmFormular)
+        self.frame.setObjectName(u"frame")
+        self.frame.setGeometry(QRect(10, 10, 721, 201))
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.btnSpend = QPushButton(self.frame)
+        self.btnSpend.setObjectName(u"btnSpend")
+        self.btnSpend.setGeometry(QRect(620, 170, 91, 21))
+        self.btnSpend.setStyleSheet(u"QPushButton{\n"
+"border: 2px solid rgb(37,39,48);\n"
+"border-radius: 10px;\n"
+"color: #FFF;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"background-color: rgb(34,36,44);\n"
+"color:rgb(0,0,255);\n"
+"}")
+        self.cbspendmoney = QComboBox(self.frame)
+        self.cbspendmoney.addItem("")
+        self.cbspendmoney.addItem("")
+        self.cbspendmoney.addItem("")
+        self.cbspendmoney.addItem("")
+        self.cbspendmoney.addItem("")
+        self.cbspendmoney.setObjectName(u"cbspendmoney")
+        self.cbspendmoney.setGeometry(QRect(10, 60, 121, 31))
+        self.cbspendmoney.setFont(font)
+        self.cbspendmoney.setStyleSheet(u"background-color: rgb(10,10,10);\n"
+"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.cbspendmoney.setEditable(False)
+        self.lespend = QLineEdit(self.frame)
+        self.lespend.setObjectName(u"lespend")
+        self.lespend.setGeometry(QRect(160, 110, 141, 21))
+        self.lespend.setFont(font3)
+        self.lespend.setStyleSheet(u"QLineEdit{\n"
+"border: 2px solid rgb(37,39,48);\n"
+"border-radius: 10px;\n"
+"color: #FFF;\n"
+"padding-left: 20px;\n"
+"padding-right: 20px;\n"
+"background-color: rgb(34,36,44);\n"
+"color:rgb(0,0,255);\n"
+"}\n"
+"QLineEdit:hover { border: 2px solid rgb(48,50,62);}QLineEdit:focus{border:2px solid rgb(48,50,60)n}")
+        self.lespend.setAlignment(Qt.AlignCenter)
+        self.lblSpendMoney = QLabel(self.frame)
+        self.lblSpendMoney.setObjectName(u"lblSpendMoney")
+        self.lblSpendMoney.setGeometry(QRect(10, 110, 151, 21))
+        self.lblSpendMoney.setFont(font6)
+        self.lblSpendMoney.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.lblSpendMoney_2 = QLabel(self.frame)
+        self.lblSpendMoney_2.setObjectName(u"lblSpendMoney_2")
+        self.lblSpendMoney_2.setGeometry(QRect(10, 10, 131, 28))
+        self.lblSpendMoney_2.setFont(font7)
+        self.lblSpendMoney_2.setStyleSheet(u"color: rgb(88, 150, 250);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.pbSpendMoney = QProgressBar(self.frame)
+        self.pbSpendMoney.setObjectName(u"pbSpendMoney")
+        self.pbSpendMoney.setGeometry(QRect(160, 140, 431, 20))
+        self.pbSpendMoney.setStyleSheet(u"QProgressBar {\n"
+"	\n"
+"	background-color: rgb(98, 114, 164);\n"
+"	color: rgb(200, 200, 200);\n"
+"	border-style: none;\n"
+"	border-radius: 10px;\n"
+"	text-align: center;\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"	border-radius: 10px;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
+        self.pbSpendMoney.setMaximum(100)
+        self.pbSpendMoney.setValue(0)
+        self.pbSpendMoneyEuro = QProgressBar(self.frame)
+        self.pbSpendMoneyEuro.setObjectName(u"pbSpendMoneyEuro")
+        self.pbSpendMoneyEuro.setGeometry(QRect(160, 170, 431, 20))
+        self.pbSpendMoneyEuro.setStyleSheet(u"QProgressBar {\n"
+"	\n"
+"	background-color: rgb(98, 114, 164);\n"
+"	color: rgb(200, 200, 200);\n"
+"	border-style: none;\n"
+"	border-radius: 10px;\n"
+"	text-align: center;\n"
+"}\n"
+"QProgressBar::chunk{\n"
+"	border-radius: 10px;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));\n"
+"}")
+        self.pbSpendMoneyEuro.setMaximum(100)
+        self.pbSpendMoneyEuro.setValue(0)
+        self.frameHistory = QFrame(self.frmFormular)
+        self.frameHistory.setObjectName(u"frameHistory")
+        self.frameHistory.setGeometry(QRect(740, 10, 151, 481))
+        self.frameHistory.setFrameShape(QFrame.StyledPanel)
+        self.frameHistory.setFrameShadow(QFrame.Raised)
+        self.lblHistory = QLabel(self.frameHistory)
+        self.lblHistory.setObjectName(u"lblHistory")
+        self.lblHistory.setGeometry(QRect(10, 10, 91, 28))
+        self.lblHistory.setFont(font7)
+        self.lblHistory.setStyleSheet(u"color: rgb(88, 150, 250);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.listwidgethistory = QListWidget(self.frameHistory)
+        self.listwidgethistory.setObjectName(u"listwidgethistory")
+        self.listwidgethistory.setGeometry(QRect(10, 40, 131, 431))
+        self.listwidgethistory.setStyleSheet(u"color: rgb(255, 0, 0);")
         MainWindow.setCentralWidget(self.centralwidget)
-        self.frmDashboard.raise_()
-        self.frmFormular.raise_()
         self.frmCompanyFormular.raise_()
-        self.frame.raise_()
+        self.frmDashboard.raise_()
+        self.frameup.raise_()
         self.frameleft.raise_()
         self.btn_minimize.raise_()
         self.btn_maximize.raise_()
         self.btn_close.raise_()
         self.frametop.raise_()
         self.framdown.raise_()
+        self.frmFormular.raise_()
 
         self.retranslateUi(MainWindow)
 
@@ -709,7 +796,16 @@ class Ui_MainWindow(object):
         self.btn_minimize.setText("")
         self.lblcapitalmanager.setText(QCoreApplication.translate("MainWindow", u"Capital Manager", None))
         self.lblname.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
-        self.lblSpendMoney.setText(QCoreApplication.translate("MainWindow", u"Spend Money", None))
+        self.lblAccount2.setText(QCoreApplication.translate("MainWindow", u"Account 2", None))
+        self.lblAccount3.setText(QCoreApplication.translate("MainWindow", u"Account 3", None))
+        self.lblAccount1.setText(QCoreApplication.translate("MainWindow", u"Account 1", None))
+        self.lblTotal.setText(QCoreApplication.translate("MainWindow", u"Total", None))
+        self.lblMainAccount.setText(QCoreApplication.translate("MainWindow", u"Main Account", None))
+        self.lblAccount4.setText(QCoreApplication.translate("MainWindow", u"Account 4", None))
+        self.pbMainAccount.setFormat(QCoreApplication.translate("MainWindow", u"%p%", None))
+        self.btnSend_2.setText(QCoreApplication.translate("MainWindow", u"Get", None))
+        self.lblAccountStatistic.setText(QCoreApplication.translate("MainWindow", u"General Overview", None))
+        self.btnSpend.setText(QCoreApplication.translate("MainWindow", u"Spend", None))
         self.cbspendmoney.setItemText(0, QCoreApplication.translate("MainWindow", u"Main Account", None))
         self.cbspendmoney.setItemText(1, QCoreApplication.translate("MainWindow", u"Account 1", None))
         self.cbspendmoney.setItemText(2, QCoreApplication.translate("MainWindow", u"Account 2", None))
@@ -717,15 +813,11 @@ class Ui_MainWindow(object):
         self.cbspendmoney.setItemText(4, QCoreApplication.translate("MainWindow", u"Account 4", None))
 
         self.cbspendmoney.setCurrentText(QCoreApplication.translate("MainWindow", u"Main Account", None))
-        self.btnSend_2.setText(QCoreApplication.translate("MainWindow", u"Get", None))
-        self.pbMainAccount.setFormat(QCoreApplication.translate("MainWindow", u"%p%", None))
-        self.lblMainAccount.setText(QCoreApplication.translate("MainWindow", u"Main Account", None))
-        self.lblAccount1.setText(QCoreApplication.translate("MainWindow", u"Account 1", None))
-        self.lblAccount2.setText(QCoreApplication.translate("MainWindow", u"Account 2", None))
-        self.lblAccount4.setText(QCoreApplication.translate("MainWindow", u"Account 4", None))
-        self.lblAccount3.setText(QCoreApplication.translate("MainWindow", u"Account 3", None))
         self.lespend.setText(QCoreApplication.translate("MainWindow", u"100", None))
-        self.btnSpend.setText(QCoreApplication.translate("MainWindow", u"Spend", None))
-        self.lblTotal.setText(QCoreApplication.translate("MainWindow", u"Total", None))
+        self.lblSpendMoney.setText(QCoreApplication.translate("MainWindow", u"Spend Money", None))
+        self.lblSpendMoney_2.setText(QCoreApplication.translate("MainWindow", u"Spend Money", None))
+        self.pbSpendMoney.setFormat(QCoreApplication.translate("MainWindow", u"%p%", None))
+        self.pbSpendMoneyEuro.setFormat(QCoreApplication.translate("MainWindow", u"%p%", None))
+        self.lblHistory.setText(QCoreApplication.translate("MainWindow", u"History", None))
     # retranslateUi
 
