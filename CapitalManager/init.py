@@ -17,6 +17,8 @@ class MainWindow(QMainWindow):
     Account2 = 0
     Account3 = 0
     Account4 = 0
+    currencycounter=0
+    euroboolean = 0
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -35,7 +37,33 @@ class MainWindow(QMainWindow):
         self.ui.btn_maximize.clicked.connect(self.btnMaximize)
         self.ui.btn_minimize.clicked.connect(self.btnMinimize)
         self.ui.cbspendmoney.currentIndexChanged.connect(self.cbspendmoneychanged)
+        self.ui.btnCurrency.clicked.connect(self.btncurrencyclicked)
 
+
+    def btncurrencyclicked(self):
+        if(MainWindow.currencycounter%2==0):
+            self.ui.btnCurrency.setStyleSheet(u"QPushButton {\n"
+                                           "	border: none;\n"
+                                           "	border-radius: 6px;		\n"
+                                           "	background-color: rgb(0, 150, 240);\n"
+                                           "}\n"
+                                           "QPushButton:hover {		\n"
+                                           "		background-color: rgb(0, 200, 255);\n"
+                                           "}")
+            self.ui.lblcurrency.setText("%")
+            MainWindow.euroboolean = 0
+        else:
+            self.ui.btnCurrency.setStyleSheet(u"QPushButton {\n"
+                                           "	border: none;\n"
+                                           "	border-radius: 6px;		\n"
+                                           "	background-color: rgb(200, 0, 0);\n"
+                                           "}\n"
+                                           "QPushButton:hover {		\n"
+                                           "		background-color: rgb(255, 0,0);\n"
+                                           "}")
+            self.ui.lblcurrency.setText("€")
+            MainWindow.euroboolean = 1
+        MainWindow.currencycounter += 1
 
     def addItems(self,item):
         self.ui.listwidgethistory.addItem(item)
@@ -72,18 +100,22 @@ class MainWindow(QMainWindow):
         self.showMinimized()
     def btnDashboard_Clicked(self):
         self.ui.frmDashboard.raise_()
+        self.ui.lblname.setText("Dashboard")
         print("btndash")
 
     def btnFormular_Clicked(self):
         self.ui.frmFormular.raise_()
+        self.ui.lblname.setText("Formular")
         print("btnformular")
 
     def btnSettings_Clicked(self):
         # self.ui.framemid.raise_()
+        self.ui.lblname.setText("Settings")
         print("btnsettings")
 
     def btnCompanyFormular(self):
         self.ui.frmCompanyFormular.raise_()
+        self.ui.lblname.setText("Company Formular")
         print("btncompanyformular")  #
 
     def btnSend(self):
@@ -154,13 +186,22 @@ class MainWindow(QMainWindow):
         print("Money sent!")
 
     def btnSend_2(self):
-        self.ui.pbAccount1.setFormat(str(MainWindow.Account1) + " €")
-        self.ui.pbAccount2.setFormat(str(MainWindow.Account2) + " €")
-        self.ui.pbAccount3.setFormat(str(MainWindow.Account3) + " €")
-        self.ui.pbAccount4.setFormat(str(MainWindow.Account4) + " €")
-        self.ui.pbMainAccount.setFormat(str(MainWindow.netsalary) + " €")
-        self.ui.pbTotal.setFormat(str(MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4) + " €")
-        self.ProgressBarValuesrefresh()
+        if MainWindow.euroboolean == 1:
+          self.ui.pbAccount1.setFormat(str(MainWindow.Account1) + " €")
+          self.ui.pbAccount2.setFormat(str(MainWindow.Account2) + " €")
+          self.ui.pbAccount3.setFormat(str(MainWindow.Account3) + " €")
+          self.ui.pbAccount4.setFormat(str(MainWindow.Account4) + " €")
+          self.ui.pbMainAccount.setFormat(str(MainWindow.netsalary) + " €")
+          self.ui.pbTotal.setFormat(str(MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4) + " €")
+          self.ProgressBarValuesrefresh()
+        else:
+            self.ui.pbAccount1.setFormat("%p%")
+            self.ui.pbAccount2.setFormat("%p%")
+            self.ui.pbAccount3.setFormat("%p%")
+            self.ui.pbAccount4.setFormat("%p%")
+            self.ui.pbMainAccount.setFormat("%p%")
+            self.ui.pbTotal.setFormat("%p%")
+            self.ProgressBarValuesrefresh()
         print("Get")
 
     def btnSpend(self):

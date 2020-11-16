@@ -443,7 +443,7 @@ class Ui_MainWindow(object):
         self.frmFormular.setFrameShadow(QFrame.Raised)
         self.frameAccountStatistic = QFrame(self.frmFormular)
         self.frameAccountStatistic.setObjectName(u"frameAccountStatistic")
-        self.frameAccountStatistic.setGeometry(QRect(10, 220, 721, 271))
+        self.frameAccountStatistic.setGeometry(QRect(-10, 220, 741, 271))
         self.frameAccountStatistic.setFrameShape(QFrame.StyledPanel)
         self.frameAccountStatistic.setFrameShadow(QFrame.Raised)
         self.pbAccount1 = QProgressBar(self.frameAccountStatistic)
@@ -603,7 +603,7 @@ class Ui_MainWindow(object):
         self.pbAccount3.setValue(0)
         self.btnSend_2 = QPushButton(self.frameAccountStatistic)
         self.btnSend_2.setObjectName(u"btnSend_2")
-        self.btnSend_2.setGeometry(QRect(620, 240, 91, 21))
+        self.btnSend_2.setGeometry(QRect(640, 240, 91, 21))
         self.btnSend_2.setStyleSheet(u"QPushButton{\n"
 "border: 2px solid rgb(37,39,48);\n"
 "border-radius: 10px;\n"
@@ -629,6 +629,30 @@ class Ui_MainWindow(object):
 " border-bottom: 0px solid blue; ")
         self.lblAccountStatistic.setFrameShape(QFrame.NoFrame)
         self.lblAccountStatistic.setLineWidth(1)
+        self.btnCurrency = QPushButton(self.frameAccountStatistic)
+        self.btnCurrency.setObjectName(u"btnCurrency")
+        self.btnCurrency.setGeometry(QRect(710, 220, 14, 14))
+        self.btnCurrency.setMinimumSize(QSize(14, 14))
+        self.btnCurrency.setMaximumSize(QSize(17, 17))
+        self.btnCurrency.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 6px;		\n"
+"	background-color: rgb(0, 150, 240);\n"
+"}\n"
+"QPushButton:hover {		\n"
+"		background-color: rgb(0, 200, 255);\n"
+"}")
+        self.btnCurrency.setIconSize(QSize(14, 14))
+        self.lblcurrency = QLabel(self.frameAccountStatistic)
+        self.lblcurrency.setObjectName(u"lblcurrency")
+        self.lblcurrency.setGeometry(QRect(620, 242, 16, 16))
+        self.lblcurrency.setFont(font1)
+        self.lblcurrency.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; \n"
+" text-align:right;")
         self.frame = QFrame(self.frmFormular)
         self.frame.setObjectName(u"frame")
         self.frame.setGeometry(QRect(10, 10, 721, 201))
@@ -745,8 +769,12 @@ class Ui_MainWindow(object):
 " border-bottom: 0px solid blue; ")
         self.listwidgethistory = QListWidget(self.frameHistory)
         self.listwidgethistory.setObjectName(u"listwidgethistory")
-        self.listwidgethistory.setGeometry(QRect(10, 40, 131, 431))
-        self.listwidgethistory.setStyleSheet(u"color: rgb(255, 0, 0);")
+        self.listwidgethistory.setGeometry(QRect(10, 50, 131, 421))
+        self.listwidgethistory.setStyleSheet(u"color: rgb(255, 0, 0);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
         MainWindow.setCentralWidget(self.centralwidget)
         self.frmCompanyFormular.raise_()
         self.frmDashboard.raise_()
@@ -805,6 +833,11 @@ class Ui_MainWindow(object):
         self.pbMainAccount.setFormat(QCoreApplication.translate("MainWindow", u"%p%", None))
         self.btnSend_2.setText(QCoreApplication.translate("MainWindow", u"Get", None))
         self.lblAccountStatistic.setText(QCoreApplication.translate("MainWindow", u"General Overview", None))
+#if QT_CONFIG(tooltip)
+        self.btnCurrency.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
+#endif // QT_CONFIG(tooltip)
+        self.btnCurrency.setText("")
+        self.lblcurrency.setText(QCoreApplication.translate("MainWindow", u"\u20ac", None))
         self.btnSpend.setText(QCoreApplication.translate("MainWindow", u"Spend", None))
         self.cbspendmoney.setItemText(0, QCoreApplication.translate("MainWindow", u"Main Account", None))
         self.cbspendmoney.setItemText(1, QCoreApplication.translate("MainWindow", u"Account 1", None))
