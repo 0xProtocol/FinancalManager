@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1060, 678)
+        MainWindow.resize(1057, 678)
         MainWindow.setStyleSheet(u"background-color:rgb(0, 0, 0)")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -80,7 +80,7 @@ class Ui_MainWindow(object):
 "background-color:#333;\n"
 "}")
         icon1 = QIcon()
-        icon1.addFile(u":/newPrefix/atom-beta.ico", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u":/newPrefix/icons.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btnFormular.setIcon(icon1)
         self.btnFormular.setIconSize(QSize(20, 20))
         self.btnStocks = QPushButton(self.frameleft)
@@ -102,9 +102,7 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "background-color:#333;\n"
 "}")
-        icon2 = QIcon()
-        icon2.addFile(u":/newPrefix/setroubleshoot_icon.ico", QSize(), QIcon.Normal, QIcon.Off)
-        self.btnStocks.setIcon(icon2)
+        self.btnStocks.setIcon(icon1)
         self.btnStocks.setIconSize(QSize(20, 20))
         self.btnCompanyFormular = QPushButton(self.frameleft)
         self.btnCompanyFormular.setObjectName(u"btnCompanyFormular")
@@ -125,9 +123,7 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "background-color:#333;\n"
 "}")
-        icon3 = QIcon()
-        icon3.addFile(u":/newPrefix/flare.ico", QSize(), QIcon.Normal, QIcon.Off)
-        self.btnCompanyFormular.setIcon(icon3)
+        self.btnCompanyFormular.setIcon(icon1)
         self.btnCompanyFormular.setIconSize(QSize(20, 20))
         self.widget_3 = QWidget(self.frameleft)
         self.widget_3.setObjectName(u"widget_3")
@@ -160,7 +156,7 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "background-color:#333;\n"
 "}")
-        self.btnForex.setIcon(icon2)
+        self.btnForex.setIcon(icon1)
         self.btnForex.setIconSize(QSize(20, 20))
         self.btnFutures = QPushButton(self.frameleft)
         self.btnFutures.setObjectName(u"btnFutures")
@@ -181,7 +177,7 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "background-color:#333;\n"
 "}")
-        self.btnFutures.setIcon(icon2)
+        self.btnFutures.setIcon(icon1)
         self.btnFutures.setIconSize(QSize(20, 20))
         self.btnCrypto = QPushButton(self.frameleft)
         self.btnCrypto.setObjectName(u"btnCrypto")
@@ -202,7 +198,7 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "background-color:#333;\n"
 "}")
-        self.btnCrypto.setIcon(icon2)
+        self.btnCrypto.setIcon(icon1)
         self.btnCrypto.setIconSize(QSize(20, 20))
         self.btnSettings = QPushButton(self.frameleft)
         self.btnSettings.setObjectName(u"btnSettings")
@@ -223,6 +219,8 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {\n"
 "background-color:#333;\n"
 "}")
+        icon2 = QIcon()
+        icon2.addFile(u":/newPrefix/setroubleshoot_icon.ico", QSize(), QIcon.Normal, QIcon.Off)
         self.btnSettings.setIcon(icon2)
         self.btnSettings.setIconSize(QSize(20, 20))
         self.btnVersion = QPushButton(self.frameleft)
@@ -266,19 +264,223 @@ class Ui_MainWindow(object):
 " border-bottom: 2px solid blue; ")
         self.framdown.setFrameShape(QFrame.StyledPanel)
         self.framdown.setFrameShadow(QFrame.Raised)
+        self.lbldate = QLabel(self.framdown)
+        self.lbldate.setObjectName(u"lbldate")
+        self.lbldate.setGeometry(QRect(945, 30, 91, 16))
+        font1 = QFont()
+        font1.setPointSize(10)
+        font1.setBold(True)
+        font1.setWeight(75)
+        self.lbldate.setFont(font1)
+        self.lbldate.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
         self.frmDashboard = QFrame(self.centralwidget)
         self.frmDashboard.setObjectName(u"frmDashboard")
         self.frmDashboard.setGeometry(QRect(150, 110, 901, 501))
-        self.frmDashboard.setStyleSheet(u"background-color:rgb(0, 0, 0);\n"
+        self.frmDashboard.setStyleSheet(u" border-top: 2px solid blue; \n"
+" border-left: 2px solid blue; \n"
+" border-right: 2px solid blue; \n"
+" border-bottom: 2px solid blue; \n"
+"background-image: url(:/newPrefix/forex.jpeg);")
+        self.frmDashboard.setFrameShape(QFrame.StyledPanel)
+        self.frmDashboard.setFrameShadow(QFrame.Raised)
+        self.graphicsView = QGraphicsView(self.frmDashboard)
+        self.graphicsView.setObjectName(u"graphicsView")
+        self.graphicsView.setGeometry(QRect(10, 10, 461, 241))
+        self.graphicsView.setStyleSheet(u"background-image: url(:/newPrefix/black.jpg);")
+        self.frameQuickOverview = QFrame(self.frmDashboard)
+        self.frameQuickOverview.setObjectName(u"frameQuickOverview")
+        self.frameQuickOverview.setGeometry(QRect(30, 70, 131, 131))
+        self.frameQuickOverview.setStyleSheet(u"QFrame{\n"
+"	border-radius: 65px;	\n"
 " border-top: 2px solid blue; \n"
 " border-left: 2px solid blue; \n"
 " border-right: 2px solid blue; \n"
-" border-bottom: 2px solid blue; ")
-        self.frmDashboard.setFrameShape(QFrame.StyledPanel)
-        self.frmDashboard.setFrameShadow(QFrame.Raised)
-        self.label = QLabel(self.frmDashboard)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(200, 170, 281, 101))
+" border-bottom: 2px solid blue; \n"
+"background-image: url(:/newPrefix/black.jpeg);\n"
+"}")
+        self.frameQuickOverview.setFrameShape(QFrame.StyledPanel)
+        self.frameQuickOverview.setFrameShadow(QFrame.Raised)
+        self.lblQuickOverview = QLabel(self.frmDashboard)
+        self.lblQuickOverview.setObjectName(u"lblQuickOverview")
+        self.lblQuickOverview.setGeometry(QRect(30, 20, 151, 28))
+        font2 = QFont()
+        font2.setFamily(u"Segoe UI")
+        font2.setPointSize(16)
+        font2.setBold(False)
+        font2.setWeight(50)
+        self.lblQuickOverview.setFont(font2)
+        self.lblQuickOverview.setStyleSheet(u"color: rgb(88, 150, 250);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; \n"
+"background-image: url(:/newPrefix/black.jpg);")
+        self.frame_2 = QFrame(self.frmDashboard)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setGeometry(QRect(360, 150, 101, 91))
+        self.frame_2.setStyleSheet(u"background-image: url(:/newPrefix/black.jpeg);")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.label_2 = QLabel(self.frame_2)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(10, 10, 61, 16))
+        font3 = QFont()
+        font3.setPointSize(10)
+        self.label_2.setFont(font3)
+        self.label_2.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; \n"
+"")
+        self.btnCurrency_3 = QPushButton(self.frame_2)
+        self.btnCurrency_3.setObjectName(u"btnCurrency_3")
+        self.btnCurrency_3.setGeometry(QRect(80, 50, 14, 14))
+        self.btnCurrency_3.setMinimumSize(QSize(14, 14))
+        self.btnCurrency_3.setMaximumSize(QSize(17, 17))
+        self.btnCurrency_3.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 6px;		\n"
+"	background-color: rgb(255, 0, 0);\n"
+"}\n"
+"QPushButton:hover {		\n"
+"		background-color: rgb(0, 200, 255);\n"
+"}")
+        self.btnCurrency_3.setIconSize(QSize(14, 14))
+        self.btnCurrency_2 = QPushButton(self.frame_2)
+        self.btnCurrency_2.setObjectName(u"btnCurrency_2")
+        self.btnCurrency_2.setGeometry(QRect(80, 70, 14, 14))
+        self.btnCurrency_2.setMinimumSize(QSize(14, 14))
+        self.btnCurrency_2.setMaximumSize(QSize(17, 17))
+        self.btnCurrency_2.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 6px;		\n"
+"	background-color: rgb(150, 10, 250)\n"
+"}\n"
+"QPushButton:hover {		\n"
+"		background-color: rgb(0, 200, 255);\n"
+"}")
+        self.btnCurrency_2.setIconSize(QSize(14, 14))
+        self.btnCurrency_5 = QPushButton(self.frame_2)
+        self.btnCurrency_5.setObjectName(u"btnCurrency_5")
+        self.btnCurrency_5.setGeometry(QRect(80, 10, 14, 14))
+        self.btnCurrency_5.setMinimumSize(QSize(14, 14))
+        self.btnCurrency_5.setMaximumSize(QSize(17, 17))
+        self.btnCurrency_5.setAutoFillBackground(False)
+        self.btnCurrency_5.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 6px;		\n"
+"	background-color: rgb(0,255 , 0);\n"
+"background-image: url(:/newPrefix/green.jpeg);\n"
+"}\n"
+"QPushButton:hover {		\n"
+"		background-color: rgb(0, 200, 255);\n"
+"}")
+        self.btnCurrency_5.setIconSize(QSize(14, 14))
+        self.btnCurrency_4 = QPushButton(self.frame_2)
+        self.btnCurrency_4.setObjectName(u"btnCurrency_4")
+        self.btnCurrency_4.setGeometry(QRect(80, 30, 14, 14))
+        self.btnCurrency_4.setMinimumSize(QSize(14, 14))
+        self.btnCurrency_4.setMaximumSize(QSize(17, 17))
+        self.btnCurrency_4.setStyleSheet(u"QPushButton {\n"
+"	border: none;\n"
+"	border-radius: 6px;		\n"
+"	background-color: rgb(0, 0, 255);\n"
+"}\n"
+"QPushButton:hover {		\n"
+"		background-color: rgb(0, 200, 255);\n"
+"}")
+        self.btnCurrency_4.setIconSize(QSize(14, 14))
+        self.label_4 = QLabel(self.frame_2)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(10, 30, 61, 16))
+        self.label_4.setFont(font3)
+        self.label_4.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; \n"
+"")
+        self.label_6 = QLabel(self.frame_2)
+        self.label_6.setObjectName(u"label_6")
+        self.label_6.setGeometry(QRect(10, 50, 61, 16))
+        self.label_6.setFont(font3)
+        self.label_6.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; \n"
+"")
+        self.label_7 = QLabel(self.frame_2)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(10, 70, 61, 16))
+        self.label_7.setFont(font3)
+        self.label_7.setStyleSheet(u"color: rgb(88, 1, 200);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; \n"
+"")
+        self.label_2.raise_()
+        self.btnCurrency_3.raise_()
+        self.btnCurrency_2.raise_()
+        self.btnCurrency_4.raise_()
+        self.label_4.raise_()
+        self.label_6.raise_()
+        self.label_7.raise_()
+        self.btnCurrency_5.raise_()
+        self.frame_3 = QFrame(self.frmDashboard)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setGeometry(QRect(480, 10, 411, 241))
+        self.frame_3.setStyleSheet(u"background-image: url(:/newPrefix/black.jpg);")
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.lblQuickOverview_2 = QLabel(self.frame_3)
+        self.lblQuickOverview_2.setObjectName(u"lblQuickOverview_2")
+        self.lblQuickOverview_2.setGeometry(QRect(10, 10, 151, 28))
+        self.lblQuickOverview_2.setFont(font2)
+        self.lblQuickOverview_2.setStyleSheet(u"color: rgb(88, 150, 250);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; \n"
+"background-image: url(:/newPrefix/black.jpg);")
+        self.frame_4 = QFrame(self.frmDashboard)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setGeometry(QRect(10, 260, 461, 231))
+        self.frame_4.setStyleSheet(u"background-image: url(:/newPrefix/black.jpg);")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.lblQuickOverview_3 = QLabel(self.frame_4)
+        self.lblQuickOverview_3.setObjectName(u"lblQuickOverview_3")
+        self.lblQuickOverview_3.setGeometry(QRect(10, 10, 151, 28))
+        self.lblQuickOverview_3.setFont(font2)
+        self.lblQuickOverview_3.setStyleSheet(u"color: rgb(88, 150, 250);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; \n"
+"background-image: url(:/newPrefix/black.jpg);")
+        self.frame_5 = QFrame(self.frmDashboard)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setGeometry(QRect(480, 260, 411, 231))
+        self.frame_5.setStyleSheet(u"background-image: url(:/newPrefix/black.jpg);")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.lblQuickOverview_4 = QLabel(self.frame_5)
+        self.lblQuickOverview_4.setObjectName(u"lblQuickOverview_4")
+        self.lblQuickOverview_4.setGeometry(QRect(10, 10, 151, 28))
+        self.lblQuickOverview_4.setFont(font2)
+        self.lblQuickOverview_4.setStyleSheet(u"color: rgb(88, 150, 250);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; \n"
+"background-image: url(:/newPrefix/black.jpg);")
         self.frmCompanyFormular = QFrame(self.centralwidget)
         self.frmCompanyFormular.setObjectName(u"frmCompanyFormular")
         self.frmCompanyFormular.setGeometry(QRect(150, 110, 901, 501))
@@ -296,9 +498,9 @@ class Ui_MainWindow(object):
         self.comboBox_3.addItem("")
         self.comboBox_3.setObjectName(u"comboBox_3")
         self.comboBox_3.setGeometry(QRect(10, 10, 171, 22))
-        font1 = QFont()
-        font1.setPointSize(12)
-        self.comboBox_3.setFont(font1)
+        font4 = QFont()
+        font4.setPointSize(12)
+        self.comboBox_3.setFont(font4)
         self.comboBox_3.setStyleSheet(u"background-color: rgb(10,10,10);\n"
 "color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
@@ -308,10 +510,10 @@ class Ui_MainWindow(object):
         self.label_5 = QLabel(self.frmCompanyFormular)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(10, 40, 121, 81))
-        font2 = QFont()
-        font2.setFamily(u"Segoe UI")
-        font2.setPointSize(18)
-        self.label_5.setFont(font2)
+        font5 = QFont()
+        font5.setFamily(u"Segoe UI")
+        font5.setPointSize(18)
+        self.label_5.setFont(font5)
         self.label_5.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -320,9 +522,9 @@ class Ui_MainWindow(object):
         self.lineEdit = QLineEdit(self.frmCompanyFormular)
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setGeometry(QRect(130, 70, 141, 21))
-        font3 = QFont()
-        font3.setPointSize(14)
-        self.lineEdit.setFont(font3)
+        font6 = QFont()
+        font6.setPointSize(14)
+        self.lineEdit.setFont(font6)
         self.lineEdit.setStyleSheet(u"QLineEdit{\n"
 "border: 2px solid rgb(37,39,48);\n"
 "border-radius: 10px;\n"
@@ -397,12 +599,12 @@ class Ui_MainWindow(object):
         self.lblcapitalmanager = QLabel(self.frameup)
         self.lblcapitalmanager.setObjectName(u"lblcapitalmanager")
         self.lblcapitalmanager.setGeometry(QRect(20, -7, 171, 51))
-        font4 = QFont()
-        font4.setFamily(u"Segoe UI")
-        font4.setPointSize(16)
-        font4.setBold(True)
-        font4.setWeight(75)
-        self.lblcapitalmanager.setFont(font4)
+        font7 = QFont()
+        font7.setFamily(u"Segoe UI")
+        font7.setPointSize(16)
+        font7.setBold(True)
+        font7.setWeight(75)
+        self.lblcapitalmanager.setFont(font7)
         self.lblcapitalmanager.setStyleSheet(u"color: rgb(88, 1, 200);")
         self.frametop = QFrame(self.centralwidget)
         self.frametop.setObjectName(u"frametop")
@@ -417,12 +619,12 @@ class Ui_MainWindow(object):
         self.lblname = QLabel(self.frametop)
         self.lblname.setObjectName(u"lblname")
         self.lblname.setGeometry(QRect(710, 10, 181, 41))
-        font5 = QFont()
-        font5.setFamily(u"Segoe UI")
-        font5.setPointSize(14)
-        font5.setBold(False)
-        font5.setWeight(50)
-        self.lblname.setFont(font5)
+        font8 = QFont()
+        font8.setFamily(u"Segoe UI")
+        font8.setPointSize(14)
+        font8.setBold(False)
+        font8.setWeight(50)
+        self.lblname.setFont(font8)
         self.lblname.setLayoutDirection(Qt.LeftToRight)
         self.lblname.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
@@ -443,12 +645,12 @@ class Ui_MainWindow(object):
         self.frmFormular.setFrameShadow(QFrame.Raised)
         self.frameAccountStatistic = QFrame(self.frmFormular)
         self.frameAccountStatistic.setObjectName(u"frameAccountStatistic")
-        self.frameAccountStatistic.setGeometry(QRect(-10, 220, 741, 271))
+        self.frameAccountStatistic.setGeometry(QRect(10, 220, 711, 271))
         self.frameAccountStatistic.setFrameShape(QFrame.StyledPanel)
         self.frameAccountStatistic.setFrameShadow(QFrame.Raised)
         self.pbAccount1 = QProgressBar(self.frameAccountStatistic)
         self.pbAccount1.setObjectName(u"pbAccount1")
-        self.pbAccount1.setGeometry(QRect(160, 97, 431, 20))
+        self.pbAccount1.setGeometry(QRect(160, 97, 421, 20))
         self.pbAccount1.setStyleSheet(u"QProgressBar {\n"
 "	\n"
 "	background-color: rgb(98, 114, 164);\n"
@@ -465,10 +667,10 @@ class Ui_MainWindow(object):
         self.lblAccount2 = QLabel(self.frameAccountStatistic)
         self.lblAccount2.setObjectName(u"lblAccount2")
         self.lblAccount2.setGeometry(QRect(35, 127, 91, 21))
-        font6 = QFont()
-        font6.setFamily(u"Segoe UI")
-        font6.setPointSize(14)
-        self.lblAccount2.setFont(font6)
+        font9 = QFont()
+        font9.setFamily(u"Segoe UI")
+        font9.setPointSize(14)
+        self.lblAccount2.setFont(font9)
         self.lblAccount2.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -477,7 +679,7 @@ class Ui_MainWindow(object):
         self.lblAccount3 = QLabel(self.frameAccountStatistic)
         self.lblAccount3.setObjectName(u"lblAccount3")
         self.lblAccount3.setGeometry(QRect(35, 157, 91, 21))
-        self.lblAccount3.setFont(font6)
+        self.lblAccount3.setFont(font9)
         self.lblAccount3.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -486,7 +688,7 @@ class Ui_MainWindow(object):
         self.lblAccount1 = QLabel(self.frameAccountStatistic)
         self.lblAccount1.setObjectName(u"lblAccount1")
         self.lblAccount1.setGeometry(QRect(35, 97, 91, 21))
-        self.lblAccount1.setFont(font6)
+        self.lblAccount1.setFont(font9)
         self.lblAccount1.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -494,7 +696,7 @@ class Ui_MainWindow(object):
 " border-bottom: 0px solid blue; ")
         self.pbAccount2 = QProgressBar(self.frameAccountStatistic)
         self.pbAccount2.setObjectName(u"pbAccount2")
-        self.pbAccount2.setGeometry(QRect(160, 127, 431, 20))
+        self.pbAccount2.setGeometry(QRect(160, 127, 421, 20))
         self.pbAccount2.setStyleSheet(u"QProgressBar {\n"
 "	\n"
 "	background-color: rgb(98, 114, 164);\n"
@@ -511,7 +713,7 @@ class Ui_MainWindow(object):
         self.lblTotal = QLabel(self.frameAccountStatistic)
         self.lblTotal.setObjectName(u"lblTotal")
         self.lblTotal.setGeometry(QRect(30, 237, 91, 21))
-        self.lblTotal.setFont(font6)
+        self.lblTotal.setFont(font9)
         self.lblTotal.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -521,7 +723,7 @@ class Ui_MainWindow(object):
         self.lblMainAccount = QLabel(self.frameAccountStatistic)
         self.lblMainAccount.setObjectName(u"lblMainAccount")
         self.lblMainAccount.setGeometry(QRect(20, 62, 121, 21))
-        self.lblMainAccount.setFont(font6)
+        self.lblMainAccount.setFont(font9)
         self.lblMainAccount.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -530,7 +732,7 @@ class Ui_MainWindow(object):
         self.lblAccount4 = QLabel(self.frameAccountStatistic)
         self.lblAccount4.setObjectName(u"lblAccount4")
         self.lblAccount4.setGeometry(QRect(35, 187, 91, 21))
-        self.lblAccount4.setFont(font6)
+        self.lblAccount4.setFont(font9)
         self.lblAccount4.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -538,7 +740,7 @@ class Ui_MainWindow(object):
 " border-bottom: 0px solid blue; ")
         self.pbAccount4 = QProgressBar(self.frameAccountStatistic)
         self.pbAccount4.setObjectName(u"pbAccount4")
-        self.pbAccount4.setGeometry(QRect(160, 187, 431, 20))
+        self.pbAccount4.setGeometry(QRect(160, 187, 421, 20))
         self.pbAccount4.setStyleSheet(u"QProgressBar {\n"
 "	\n"
 "	background-color: rgb(98, 114, 164);\n"
@@ -554,7 +756,7 @@ class Ui_MainWindow(object):
         self.pbAccount4.setValue(0)
         self.pbMainAccount = QProgressBar(self.frameAccountStatistic)
         self.pbMainAccount.setObjectName(u"pbMainAccount")
-        self.pbMainAccount.setGeometry(QRect(160, 67, 431, 20))
+        self.pbMainAccount.setGeometry(QRect(160, 67, 421, 20))
         self.pbMainAccount.setStyleSheet(u"QProgressBar {\n"
 "	\n"
 "	background-color: rgb(98, 114, 164);\n"
@@ -571,7 +773,7 @@ class Ui_MainWindow(object):
         self.pbMainAccount.setValue(0)
         self.pbTotal = QProgressBar(self.frameAccountStatistic)
         self.pbTotal.setObjectName(u"pbTotal")
-        self.pbTotal.setGeometry(QRect(160, 240, 431, 20))
+        self.pbTotal.setGeometry(QRect(160, 240, 421, 20))
         self.pbTotal.setStyleSheet(u"QProgressBar {\n"
 "	\n"
 "	background-color: rgb(98, 114, 164);\n"
@@ -587,7 +789,7 @@ class Ui_MainWindow(object):
         self.pbTotal.setValue(100)
         self.pbAccount3 = QProgressBar(self.frameAccountStatistic)
         self.pbAccount3.setObjectName(u"pbAccount3")
-        self.pbAccount3.setGeometry(QRect(160, 157, 431, 20))
+        self.pbAccount3.setGeometry(QRect(160, 157, 421, 20))
         self.pbAccount3.setStyleSheet(u"QProgressBar {\n"
 "	\n"
 "	background-color: rgb(98, 114, 164);\n"
@@ -603,7 +805,7 @@ class Ui_MainWindow(object):
         self.pbAccount3.setValue(0)
         self.btnSend_2 = QPushButton(self.frameAccountStatistic)
         self.btnSend_2.setObjectName(u"btnSend_2")
-        self.btnSend_2.setGeometry(QRect(640, 240, 91, 21))
+        self.btnSend_2.setGeometry(QRect(610, 240, 91, 21))
         self.btnSend_2.setStyleSheet(u"QPushButton{\n"
 "border: 2px solid rgb(37,39,48);\n"
 "border-radius: 10px;\n"
@@ -616,12 +818,7 @@ class Ui_MainWindow(object):
         self.lblAccountStatistic = QLabel(self.frameAccountStatistic)
         self.lblAccountStatistic.setObjectName(u"lblAccountStatistic")
         self.lblAccountStatistic.setGeometry(QRect(10, 10, 161, 28))
-        font7 = QFont()
-        font7.setFamily(u"Segoe UI")
-        font7.setPointSize(16)
-        font7.setBold(False)
-        font7.setWeight(50)
-        self.lblAccountStatistic.setFont(font7)
+        self.lblAccountStatistic.setFont(font2)
         self.lblAccountStatistic.setStyleSheet(u"color: rgb(88, 150, 250);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -631,7 +828,7 @@ class Ui_MainWindow(object):
         self.lblAccountStatistic.setLineWidth(1)
         self.btnCurrency = QPushButton(self.frameAccountStatistic)
         self.btnCurrency.setObjectName(u"btnCurrency")
-        self.btnCurrency.setGeometry(QRect(710, 220, 14, 14))
+        self.btnCurrency.setGeometry(QRect(680, 220, 14, 14))
         self.btnCurrency.setMinimumSize(QSize(14, 14))
         self.btnCurrency.setMaximumSize(QSize(17, 17))
         self.btnCurrency.setStyleSheet(u"QPushButton {\n"
@@ -645,8 +842,8 @@ class Ui_MainWindow(object):
         self.btnCurrency.setIconSize(QSize(14, 14))
         self.lblcurrency = QLabel(self.frameAccountStatistic)
         self.lblcurrency.setObjectName(u"lblcurrency")
-        self.lblcurrency.setGeometry(QRect(620, 242, 16, 16))
-        self.lblcurrency.setFont(font1)
+        self.lblcurrency.setGeometry(QRect(590, 242, 16, 16))
+        self.lblcurrency.setFont(font4)
         self.lblcurrency.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -655,12 +852,12 @@ class Ui_MainWindow(object):
 " text-align:right;")
         self.frame = QFrame(self.frmFormular)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(10, 10, 721, 201))
+        self.frame.setGeometry(QRect(10, 10, 711, 201))
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.btnSpend = QPushButton(self.frame)
         self.btnSpend.setObjectName(u"btnSpend")
-        self.btnSpend.setGeometry(QRect(620, 170, 91, 21))
+        self.btnSpend.setGeometry(QRect(610, 170, 91, 21))
         self.btnSpend.setStyleSheet(u"QPushButton{\n"
 "border: 2px solid rgb(37,39,48);\n"
 "border-radius: 10px;\n"
@@ -689,7 +886,7 @@ class Ui_MainWindow(object):
         self.lespend = QLineEdit(self.frame)
         self.lespend.setObjectName(u"lespend")
         self.lespend.setGeometry(QRect(160, 110, 141, 21))
-        self.lespend.setFont(font3)
+        self.lespend.setFont(font6)
         self.lespend.setStyleSheet(u"QLineEdit{\n"
 "border: 2px solid rgb(37,39,48);\n"
 "border-radius: 10px;\n"
@@ -704,7 +901,7 @@ class Ui_MainWindow(object):
         self.lblSpendMoney = QLabel(self.frame)
         self.lblSpendMoney.setObjectName(u"lblSpendMoney")
         self.lblSpendMoney.setGeometry(QRect(10, 110, 151, 21))
-        self.lblSpendMoney.setFont(font6)
+        self.lblSpendMoney.setFont(font9)
         self.lblSpendMoney.setStyleSheet(u"color: rgb(88, 1, 200);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -713,7 +910,7 @@ class Ui_MainWindow(object):
         self.lblSpendMoney_2 = QLabel(self.frame)
         self.lblSpendMoney_2.setObjectName(u"lblSpendMoney_2")
         self.lblSpendMoney_2.setGeometry(QRect(10, 10, 131, 28))
-        self.lblSpendMoney_2.setFont(font7)
+        self.lblSpendMoney_2.setFont(font2)
         self.lblSpendMoney_2.setStyleSheet(u"color: rgb(88, 150, 250);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -721,7 +918,7 @@ class Ui_MainWindow(object):
 " border-bottom: 0px solid blue; ")
         self.pbSpendMoney = QProgressBar(self.frame)
         self.pbSpendMoney.setObjectName(u"pbSpendMoney")
-        self.pbSpendMoney.setGeometry(QRect(160, 140, 431, 20))
+        self.pbSpendMoney.setGeometry(QRect(160, 140, 421, 20))
         self.pbSpendMoney.setStyleSheet(u"QProgressBar {\n"
 "	\n"
 "	background-color: rgb(98, 114, 164);\n"
@@ -738,7 +935,7 @@ class Ui_MainWindow(object):
         self.pbSpendMoney.setValue(0)
         self.pbSpendMoneyEuro = QProgressBar(self.frame)
         self.pbSpendMoneyEuro.setObjectName(u"pbSpendMoneyEuro")
-        self.pbSpendMoneyEuro.setGeometry(QRect(160, 170, 431, 20))
+        self.pbSpendMoneyEuro.setGeometry(QRect(160, 170, 421, 20))
         self.pbSpendMoneyEuro.setStyleSheet(u"QProgressBar {\n"
 "	\n"
 "	background-color: rgb(98, 114, 164);\n"
@@ -755,13 +952,13 @@ class Ui_MainWindow(object):
         self.pbSpendMoneyEuro.setValue(0)
         self.frameHistory = QFrame(self.frmFormular)
         self.frameHistory.setObjectName(u"frameHistory")
-        self.frameHistory.setGeometry(QRect(740, 10, 151, 481))
+        self.frameHistory.setGeometry(QRect(730, 10, 161, 481))
         self.frameHistory.setFrameShape(QFrame.StyledPanel)
         self.frameHistory.setFrameShadow(QFrame.Raised)
         self.lblHistory = QLabel(self.frameHistory)
         self.lblHistory.setObjectName(u"lblHistory")
         self.lblHistory.setGeometry(QRect(10, 10, 91, 28))
-        self.lblHistory.setFont(font7)
+        self.lblHistory.setFont(font2)
         self.lblHistory.setStyleSheet(u"color: rgb(88, 150, 250);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
@@ -769,15 +966,17 @@ class Ui_MainWindow(object):
 " border-bottom: 0px solid blue; ")
         self.listwidgethistory = QListWidget(self.frameHistory)
         self.listwidgethistory.setObjectName(u"listwidgethistory")
-        self.listwidgethistory.setGeometry(QRect(10, 50, 131, 421))
+        self.listwidgethistory.setGeometry(QRect(10, 50, 141, 421))
         self.listwidgethistory.setStyleSheet(u"color: rgb(255, 0, 0);\n"
 " border-top: 0px solid blue; \n"
 " border-left: 0px solid blue; \n"
 " border-right: 0px solid blue; \n"
 " border-bottom: 0px solid blue; ")
+        self.frame.raise_()
+        self.frameAccountStatistic.raise_()
+        self.frameHistory.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.frmCompanyFormular.raise_()
-        self.frmDashboard.raise_()
         self.frameup.raise_()
         self.frameleft.raise_()
         self.btn_minimize.raise_()
@@ -786,6 +985,7 @@ class Ui_MainWindow(object):
         self.frametop.raise_()
         self.framdown.raise_()
         self.frmFormular.raise_()
+        self.frmDashboard.raise_()
 
         self.retranslateUi(MainWindow)
 
@@ -803,7 +1003,31 @@ class Ui_MainWindow(object):
         self.btnCrypto.setText(QCoreApplication.translate("MainWindow", u"Crypto       ", None))
         self.btnSettings.setText(QCoreApplication.translate("MainWindow", u"Settings     ", None))
         self.btnVersion.setText(QCoreApplication.translate("MainWindow", u"Version         ", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"frmDashboard", None))
+        self.lbldate.setText(QCoreApplication.translate("MainWindow", u"10-Sep-2020", None))
+        self.lblQuickOverview.setText(QCoreApplication.translate("MainWindow", u"Quick Overview", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Account 1", None))
+#if QT_CONFIG(tooltip)
+        self.btnCurrency_3.setToolTip("")
+#endif // QT_CONFIG(tooltip)
+        self.btnCurrency_3.setText("")
+#if QT_CONFIG(tooltip)
+        self.btnCurrency_2.setToolTip("")
+#endif // QT_CONFIG(tooltip)
+        self.btnCurrency_2.setText("")
+#if QT_CONFIG(tooltip)
+        self.btnCurrency_5.setToolTip("")
+#endif // QT_CONFIG(tooltip)
+        self.btnCurrency_5.setText("")
+#if QT_CONFIG(tooltip)
+        self.btnCurrency_4.setToolTip("")
+#endif // QT_CONFIG(tooltip)
+        self.btnCurrency_4.setText("")
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Account 2", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"Account 3", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Account 4", None))
+        self.lblQuickOverview_2.setText(QCoreApplication.translate("MainWindow", u"Stock Chart", None))
+        self.lblQuickOverview_3.setText(QCoreApplication.translate("MainWindow", u"Forex Chart", None))
+        self.lblQuickOverview_4.setText(QCoreApplication.translate("MainWindow", u"Futures Chart", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"lblcompany", None))
         self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"Account_991050", None))
 
@@ -834,10 +1058,10 @@ class Ui_MainWindow(object):
         self.btnSend_2.setText(QCoreApplication.translate("MainWindow", u"Get", None))
         self.lblAccountStatistic.setText(QCoreApplication.translate("MainWindow", u"General Overview", None))
 #if QT_CONFIG(tooltip)
-        self.btnCurrency.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
+        self.btnCurrency.setToolTip("")
 #endif // QT_CONFIG(tooltip)
         self.btnCurrency.setText("")
-        self.lblcurrency.setText(QCoreApplication.translate("MainWindow", u"\u20ac", None))
+        self.lblcurrency.setText(QCoreApplication.translate("MainWindow", u"%", None))
         self.btnSpend.setText(QCoreApplication.translate("MainWindow", u"Spend", None))
         self.cbspendmoney.setItemText(0, QCoreApplication.translate("MainWindow", u"Main Account", None))
         self.cbspendmoney.setItemText(1, QCoreApplication.translate("MainWindow", u"Account 1", None))

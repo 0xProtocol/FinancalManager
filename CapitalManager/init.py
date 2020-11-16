@@ -1,3 +1,4 @@
+import datetime
 import sys
 
 from PySide2 import QtCore
@@ -17,7 +18,7 @@ class MainWindow(QMainWindow):
     Account2 = 0
     Account3 = 0
     Account4 = 0
-    currencycounter=0
+    currencycounter = 0
     euroboolean = 0
 
     def __init__(self):
@@ -25,7 +26,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        #self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.ui.btnDashboard.clicked.connect(self.btnDashboard_Clicked)
         self.ui.btnFormular.clicked.connect(self.btnFormular_Clicked)
         self.ui.btnSettings.clicked.connect(self.btnSettings_Clicked)
@@ -38,68 +39,101 @@ class MainWindow(QMainWindow):
         self.ui.btn_minimize.clicked.connect(self.btnMinimize)
         self.ui.cbspendmoney.currentIndexChanged.connect(self.cbspendmoneychanged)
         self.ui.btnCurrency.clicked.connect(self.btncurrencyclicked)
-
+        self.ui.lbldate.setText(datetime.datetime.today().strftime ('%d-%b-%Y'))
 
     def btncurrencyclicked(self):
-        if(MainWindow.currencycounter%2==0):
+        if (MainWindow.currencycounter % 2 == 1):
             self.ui.btnCurrency.setStyleSheet(u"QPushButton {\n"
-                                           "	border: none;\n"
-                                           "	border-radius: 6px;		\n"
-                                           "	background-color: rgb(0, 150, 240);\n"
-                                           "}\n"
-                                           "QPushButton:hover {		\n"
-                                           "		background-color: rgb(0, 200, 255);\n"
-                                           "}")
+                                              "	border: none;\n"
+                                              "	border-radius: 6px;		\n"
+                                              "	background-color: rgb(0, 150, 240);\n"
+                                              "}\n"
+                                              "QPushButton:hover {		\n"
+                                              "		background-color: rgb(0, 200, 255);\n"
+                                              "}")
             self.ui.lblcurrency.setText("%")
             MainWindow.euroboolean = 0
         else:
             self.ui.btnCurrency.setStyleSheet(u"QPushButton {\n"
-                                           "	border: none;\n"
-                                           "	border-radius: 6px;		\n"
-                                           "	background-color: rgb(200, 0, 0);\n"
-                                           "}\n"
-                                           "QPushButton:hover {		\n"
-                                           "		background-color: rgb(255, 0,0);\n"
-                                           "}")
+                                              "	border: none;\n"
+                                              "	border-radius: 6px;		\n"
+                                              "	background-color: rgb(200, 0, 0);\n"
+                                              "}\n"
+                                              "QPushButton:hover {		\n"
+                                              "		background-color: rgb(255, 0,0);\n"
+                                              "}")
             self.ui.lblcurrency.setText("€")
             MainWindow.euroboolean = 1
         MainWindow.currencycounter += 1
 
-    def addItems(self,item):
+    def addItems(self, item):
         self.ui.listwidgethistory.addItem(item)
 
     def cbspendmoneychanged(self):
         if self.ui.cbspendmoney.currentText() == "Account 1":
-            self.ui.pbSpendMoney.setValue((MainWindow.Account1 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoney.setValue((MainWindow.Account1 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.ui.pbSpendMoneyEuro.setFormat(str(MainWindow.Account1) + " €")
-            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account1 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account1 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
         elif self.ui.cbspendmoney.currentText() == "Account 2":
-            self.ui.pbSpendMoney.setValue((MainWindow.Account2 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoney.setValue((MainWindow.Account2 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.ui.pbSpendMoneyEuro.setFormat(str(MainWindow.Account2) + " €")
-            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account2 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account2 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
         elif self.ui.cbspendmoney.currentText() == "Account 3":
-            self.ui.pbSpendMoney.setValue((MainWindow.Account3 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoney.setValue((MainWindow.Account3 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.ui.pbSpendMoneyEuro.setFormat(str(MainWindow.Account3) + " €")
-            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account3 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account3 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
         elif self.ui.cbspendmoney.currentText() == "Account 4":
-            self.ui.pbSpendMoney.setValue((MainWindow.Account4 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoney.setValue((MainWindow.Account4 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.ui.pbSpendMoneyEuro.setFormat(str(MainWindow.Account4) + " €")
-            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account4 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
-        else :
+            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account4 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+        else:
             self.ui.pbSpendMoneyEuro.setFormat(str(MainWindow.netsalary) + " €")
-            self.ui.pbSpendMoney.setValue((MainWindow.netsalary)/
-                                          (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)*100)
-            self.ui.pbSpendMoneyEuro.setValue((MainWindow.netsalary / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoney.setValue((MainWindow.netsalary) /
+                                          (
+                                                      MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4) * 100)
+            self.ui.pbSpendMoneyEuro.setValue((MainWindow.netsalary / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
 
     def btnClose(self):
         sys.exit(app.exec_())
+
     def btnMaximize(self):
         # self.showMaximized()
         print("max")
+
     def btnMinimize(self):
         self.showMinimized()
+
     def btnDashboard_Clicked(self):
         self.ui.frmDashboard.raise_()
+        a1 = MainWindow.Account1 / (
+                    MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)
+        a2 = MainWindow.Account2 / (
+                    MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)
+        a3 = MainWindow.Account3 / (
+                    MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)
+        a4 = MainWindow.Account4 / (
+                    MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)
+        a5=0
+        self.ui.frameQuickOverview.setStyleSheet(u"QFrame{\n"
+                                              "	border-radius: 65px;	\n"
+                                                  f"	background-color: qconicalgradient(cx:0.5, cy:0.5, angle:90, stop:{0} rgba(0, 255,0, 255),stop:{a1} rgba(0, 255,0, 255) ,stop:{a1+0.001} rgba(0, 0, 255, 255),stop:{a1+a2} rgba(0, 0, 255, 255), stop:{a1+a2+0.001} rgba(255, 0, 0, 255), stop:{a1+a2+a3} rgba(255, 0, 0, 255), stop:{a1+a2+a3+0.001} rgba(150, 10, 250, 255));\n"
+                                              "\n"
+                                              " border-top: 0px solid blue; \n"
+                                              " border-left: 0px solid blue; \n"
+                                              " border-right: 0px solid blue; \n"
+                                              " border-bottom: 0px solid blue; \n"
+                                              " background-image: url(:/newPrefix/black.jpeg); \n"
+                                              "\n"
+                                              "}")
         self.ui.lblname.setText("Dashboard")
         print("btndash")
 
@@ -187,13 +221,14 @@ class MainWindow(QMainWindow):
 
     def btnSend_2(self):
         if MainWindow.euroboolean == 1:
-          self.ui.pbAccount1.setFormat(str(MainWindow.Account1) + " €")
-          self.ui.pbAccount2.setFormat(str(MainWindow.Account2) + " €")
-          self.ui.pbAccount3.setFormat(str(MainWindow.Account3) + " €")
-          self.ui.pbAccount4.setFormat(str(MainWindow.Account4) + " €")
-          self.ui.pbMainAccount.setFormat(str(MainWindow.netsalary) + " €")
-          self.ui.pbTotal.setFormat(str(MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4) + " €")
-          self.ProgressBarValuesrefresh()
+            self.ui.pbAccount1.setFormat(str(MainWindow.Account1) + " €")
+            self.ui.pbAccount2.setFormat(str(MainWindow.Account2) + " €")
+            self.ui.pbAccount3.setFormat(str(MainWindow.Account3) + " €")
+            self.ui.pbAccount4.setFormat(str(MainWindow.Account4) + " €")
+            self.ui.pbMainAccount.setFormat(str(MainWindow.netsalary) + " €")
+            self.ui.pbTotal.setFormat(
+                str(MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4) + " €")
+            self.ProgressBarValuesrefresh()
         else:
             self.ui.pbAccount1.setFormat("%p%")
             self.ui.pbAccount2.setFormat("%p%")
@@ -208,34 +243,44 @@ class MainWindow(QMainWindow):
         print(self.ui.cbspendmoney.currentText())
         if self.ui.cbspendmoney.currentText() == "Account 1":
             MainWindow.Account1 = MainWindow.Account1 - (float(self.ui.lespend.text()))
-            self.ui.pbSpendMoney.setValue((MainWindow.Account1 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoney.setValue((MainWindow.Account1 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.ui.pbSpendMoneyEuro.setFormat(str(MainWindow.Account1) + " €")
-            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account1 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account1 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.addItems("Account 1: - " + self.ui.lespend.text())
         elif self.ui.cbspendmoney.currentText() == "Account 2":
             MainWindow.Account2 = MainWindow.Account2 - (float(self.ui.lespend.text()))
-            self.ui.pbSpendMoney.setValue((MainWindow.Account2 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoney.setValue((MainWindow.Account2 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.ui.pbSpendMoneyEuro.setFormat(str(MainWindow.Account2) + " €")
-            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account2 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account2 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.addItems("Account 2: - " + self.ui.lespend.text())
         elif self.ui.cbspendmoney.currentText() == "Account 3":
             MainWindow.Account3 = MainWindow.Account3 - (float(self.ui.lespend.text()))
-            self.ui.pbSpendMoney.setValue((MainWindow.Account3 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoney.setValue((MainWindow.Account3 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.ui.pbSpendMoneyEuro.setFormat(str(MainWindow.Account3) + " €")
-            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account3 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account3 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.addItems("Account 3: - " + self.ui.lespend.text())
         elif self.ui.cbspendmoney.currentText() == "Account 4":
             MainWindow.Account4 = MainWindow.Account4 - (float(self.ui.lespend.text()))
-            self.ui.pbSpendMoney.setValue((MainWindow.Account4 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoney.setValue((MainWindow.Account4 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.ui.pbSpendMoneyEuro.setFormat(str(MainWindow.Account4) + " €")
-            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account4 / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoneyEuro.setValue((MainWindow.Account4 / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.addItems("Account 4: - " + self.ui.lespend.text())
-        else :
+        else:
             MainWindow.netsalary = MainWindow.netsalary - (float(self.ui.lespend.text()))
             self.ui.pbSpendMoneyEuro.setFormat(str(MainWindow.netsalary) + " €")
-            self.ui.pbSpendMoney.setValue((MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)/
-            (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)*100)
-            self.ui.pbSpendMoneyEuro.setValue((MainWindow.netsalary / (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
+            self.ui.pbSpendMoney.setValue(
+                (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4) /
+                (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4) * 100)
+            self.ui.pbSpendMoneyEuro.setValue((MainWindow.netsalary / (
+                        MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.addItems("Main Account: - " + self.ui.lespend.text())
         print("Spend")
 
@@ -250,8 +295,9 @@ class MainWindow(QMainWindow):
                 MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
         self.ui.pbMainAccount.setValue((MainWindow.netsalary / (
                 MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
-        self.ui.pbTotal.setValue((MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)/
-                                 (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)*100)
+        self.ui.pbTotal.setValue(
+            (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4) /
+            (MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4) * 100)
 
 
 # SPLASH SCREEN

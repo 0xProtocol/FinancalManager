@@ -1,5 +1,8 @@
 <RCC>
   <qresource prefix="newPrefix">
+    <file>green.jpg</file>
+    <file>black.jpg</file>
+    <file>forex.jpeg</file>
     <file>fallingmoney.png</file>
     <file>logomoney.jpg</file>
     <file>icons.png</file>
