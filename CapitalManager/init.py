@@ -1,5 +1,6 @@
 import datetime
 import sys
+import json
 
 from PySide2 import QtCore
 from PySide2.QtGui import (QColor)
@@ -21,13 +22,16 @@ class MainWindow(QMainWindow):
     currencycounter = 0
     euroboolean = 0
 
+
     def __init__(self):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.ReadConfig()
         self.ui.btnDashboard.clicked.connect(self.btnDashboard_Clicked)
+        self.btnDashboard_Clicked()
         self.ui.btnFormular.clicked.connect(self.btnFormular_Clicked)
         self.ui.btnSettings.clicked.connect(self.btnSettings_Clicked)
         self.ui.btnCompanyFormular.clicked.connect(self.btnCompanyFormular)
@@ -112,6 +116,19 @@ class MainWindow(QMainWindow):
     def btnMinimize(self):
         self.showMinimized()
 
+    def SaveConfig(self):
+        config = {'key1': f'{MainWindow.netsalary}', 'key2': f'{MainWindow.Account1}','key3': f'{MainWindow.Account2}','key4': f'{MainWindow.Account3}','key5': f'{MainWindow.Account4}'}
+        with open('config.json', 'w') as f:
+            json.dump(config, f)
+
+    def ReadConfig(self):
+        with open('config.json', 'r') as f:
+            config = json.load(f)
+        MainWindow.netsalary = float(config['key1'])
+        MainWindow.Account1 = float(config['key2'])
+        MainWindow.Account2 = float(config['key3'])
+        MainWindow.Account3 = float(config['key4'])
+        MainWindow.Account4 = float(config['key5'])
     def btnDashboard_Clicked(self):
         self.ui.frmDashboard.raise_()
         a1 = MainWindow.Account1 / (
@@ -150,7 +167,7 @@ class MainWindow(QMainWindow):
     def btnCompanyFormular(self):
         self.ui.frmCompanyFormular.raise_()
         self.ui.lblname.setText("Company Formular")
-        print("btncompanyformular")  #
+        print("btncompanyformular")
 
     def btnSend(self):
         MainWindow.netsalary = MainWindow.netsalary + float(self.ui.lineEdit.text())
@@ -217,6 +234,7 @@ class MainWindow(QMainWindow):
         Accounts[4] = MainWindow.Account4
         self.ProgressBarValuesrefresh()
 
+        self.SaveConfig()
         print("Money sent!")
 
     def btnSend_2(self):
@@ -282,6 +300,7 @@ class MainWindow(QMainWindow):
             self.ui.pbSpendMoneyEuro.setValue((MainWindow.netsalary / (
                         MainWindow.Account1 + MainWindow.Account2 + MainWindow.Account3 + MainWindow.Account4)) * 100)
             self.addItems("Main Account: - " + self.ui.lespend.text())
+        self.SaveConfig()
         print("Spend")
 
     def ProgressBarValuesrefresh(self):
