@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1057</width>
+    <width>1059</width>
     <height>678</height>
    </rect>
   </property>
@@ -82,7 +82,7 @@ background-color:#333;
      </property>
      <property name="icon">
       <iconset resource="main.qrc">
-       <normaloff>:/newPrefix/BrokenSword.ico</normaloff>:/newPrefix/BrokenSword.ico</iconset>
+       <normaloff>:/newPrefix/icons.png</normaloff>:/newPrefix/icons.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -425,7 +425,7 @@ background-color:#333;
      </property>
      <property name="icon">
       <iconset resource="main.qrc">
-       <normaloff>:/newPrefix/setroubleshoot_icon.ico</normaloff>:/newPrefix/setroubleshoot_icon.ico</iconset>
+       <normaloff>:/newPrefix/icons.png</normaloff>:/newPrefix/icons.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -471,7 +471,7 @@ background-color:#333;
      </property>
      <property name="icon">
       <iconset resource="main.qrc">
-       <normaloff>:/newPrefix/setroubleshoot_icon.ico</normaloff>:/newPrefix/setroubleshoot_icon.ico</iconset>
+       <normaloff>:/newPrefix/icons.png</normaloff>:/newPrefix/icons.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -1086,6 +1086,13 @@ background-image: url(:/newPrefix/black.jpg);</string>
       </property>
      </widget>
     </widget>
+    <zorder>frame_3</zorder>
+    <zorder>graphicsView</zorder>
+    <zorder>frameQuickOverview</zorder>
+    <zorder>lblQuickOverview</zorder>
+    <zorder>frame_2</zorder>
+    <zorder>frame_4</zorder>
+    <zorder>frame_5</zorder>
    </widget>
    <widget class="QFrame" name="frmCompanyFormular">
     <property name="geometry">
@@ -1491,6 +1498,317 @@ QPushButton:hover {
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QFrame" name="frame">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>711</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="btnSpend">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>170</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border: 2px solid rgb(37,39,48);
+border-radius: 10px;
+color: #FFF;
+padding-left: 20px;
+padding-right: 20px;
+background-color: rgb(34,36,44);
+color:rgb(0,0,255);
+}</string>
+      </property>
+      <property name="text">
+       <string>Spend</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cbspendmoney">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(10,10,10);
+color: rgb(88, 1, 200);
+ border-top: 0px solid blue; 
+ border-left: 0px solid blue; 
+ border-right: 0px solid blue; 
+ border-bottom: 0px solid blue; </string>
+      </property>
+      <property name="editable">
+       <bool>false</bool>
+      </property>
+      <property name="currentText">
+       <string>Main Account</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Main Account</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Account 1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Account 2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Account 3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Account 4</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLineEdit" name="lespend">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>110</y>
+        <width>141</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLineEdit{
+border: 2px solid rgb(37,39,48);
+border-radius: 10px;
+color: #FFF;
+padding-left: 20px;
+padding-right: 20px;
+background-color: rgb(34,36,44);
+color:rgb(0,0,255);
+}
+QLineEdit:hover { border: 2px solid rgb(48,50,62);}QLineEdit:focus{border:2px solid rgb(48,50,60)n}</string>
+      </property>
+      <property name="text">
+       <string>100</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblSpendMoney">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>151</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(88, 1, 200);
+ border-top: 0px solid blue; 
+ border-left: 0px solid blue; 
+ border-right: 0px solid blue; 
+ border-bottom: 0px solid blue; </string>
+      </property>
+      <property name="text">
+       <string>Spend Money</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblSpendMoney_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>131</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>16</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(88, 150, 250);
+ border-top: 0px solid blue; 
+ border-left: 0px solid blue; 
+ border-right: 0px solid blue; 
+ border-bottom: 0px solid blue; </string>
+      </property>
+      <property name="text">
+       <string>Spend Money</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="pbSpendMoney">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>140</y>
+        <width>421</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
+	
+	background-color: rgb(98, 114, 164);
+	color: rgb(200, 200, 200);
+	border-style: none;
+	border-radius: 10px;
+	text-align: center;
+}
+QProgressBar::chunk{
+	border-radius: 10px;
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));
+}</string>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="format">
+       <string>%p%</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="pbSpendMoneyEuro">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>170</y>
+        <width>421</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
+	
+	background-color: rgb(98, 114, 164);
+	color: rgb(200, 200, 200);
+	border-style: none;
+	border-radius: 10px;
+	text-align: center;
+}
+QProgressBar::chunk{
+	border-radius: 10px;
+	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));
+}</string>
+      </property>
+      <property name="maximum">
+       <number>100</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="format">
+       <string>%p%</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="frameHistory">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>10</y>
+       <width>161</width>
+       <height>481</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="lblHistory">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>91</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>16</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(88, 150, 250);
+ border-top: 0px solid blue; 
+ border-left: 0px solid blue; 
+ border-right: 0px solid blue; 
+ border-bottom: 0px solid blue; </string>
+      </property>
+      <property name="text">
+       <string>History</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listwidgethistory">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>141</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 0, 0);
+ border-top: 0px solid blue; 
+ border-left: 0px solid blue; 
+ border-right: 0px solid blue; 
+ border-bottom: 0px solid blue; </string>
+      </property>
+     </widget>
+     <zorder>listwidgethistory</zorder>
+     <zorder>lblHistory</zorder>
+    </widget>
     <widget class="QFrame" name="frameAccountStatistic">
      <property name="geometry">
       <rect>
@@ -1962,13 +2280,36 @@ QPushButton:hover {
       </property>
      </widget>
     </widget>
-    <widget class="QFrame" name="frame">
+   </widget>
+   <widget class="QFrame" name="frmStocks">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>110</y>
+      <width>901</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(0,0, 0);
+ border-top: 2px solid blue; 
+ border-left: 2px solid blue; 
+ border-right: 2px solid blue; 
+ border-bottom: 2px solid blue; </string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QFrame" name="frame_6">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>711</width>
-       <height>201</height>
+       <width>431</width>
+       <height>191</height>
       </rect>
      </property>
      <property name="frameShape">
@@ -1977,145 +2318,7 @@ QPushButton:hover {
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QPushButton" name="btnSpend">
-      <property name="geometry">
-       <rect>
-        <x>610</x>
-        <y>170</y>
-        <width>91</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton{
-border: 2px solid rgb(37,39,48);
-border-radius: 10px;
-color: #FFF;
-padding-left: 20px;
-padding-right: 20px;
-background-color: rgb(34,36,44);
-color:rgb(0,0,255);
-}</string>
-      </property>
-      <property name="text">
-       <string>Spend</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cbspendmoney">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>121</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Segoe UI</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(10,10,10);
-color: rgb(88, 1, 200);
- border-top: 0px solid blue; 
- border-left: 0px solid blue; 
- border-right: 0px solid blue; 
- border-bottom: 0px solid blue; </string>
-      </property>
-      <property name="editable">
-       <bool>false</bool>
-      </property>
-      <property name="currentText">
-       <string>Main Account</string>
-      </property>
-      <item>
-       <property name="text">
-        <string>Main Account</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Account 1</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Account 2</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Account 3</string>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Account 4</string>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLineEdit" name="lespend">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>110</y>
-        <width>141</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QLineEdit{
-border: 2px solid rgb(37,39,48);
-border-radius: 10px;
-color: #FFF;
-padding-left: 20px;
-padding-right: 20px;
-background-color: rgb(34,36,44);
-color:rgb(0,0,255);
-}
-QLineEdit:hover { border: 2px solid rgb(48,50,62);}QLineEdit:focus{border:2px solid rgb(48,50,60)n}</string>
-      </property>
-      <property name="text">
-       <string>100</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lblSpendMoney">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>110</y>
-        <width>151</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Segoe UI</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(88, 1, 200);
- border-top: 0px solid blue; 
- border-left: 0px solid blue; 
- border-right: 0px solid blue; 
- border-bottom: 0px solid blue; </string>
-      </property>
-      <property name="text">
-       <string>Spend Money</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="lblSpendMoney_2">
+     <widget class="QLabel" name="lblStocks">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -2140,142 +2343,149 @@ QLineEdit:hover { border: 2px solid rgb(48,50,62);}QLineEdit:focus{border:2px so
  border-bottom: 0px solid blue; </string>
       </property>
       <property name="text">
-       <string>Spend Money</string>
+       <string>Stock Analysis</string>
       </property>
      </widget>
-     <widget class="QProgressBar" name="pbSpendMoney">
+     <widget class="QLineEdit" name="lblstockname">
       <property name="geometry">
        <rect>
-        <x>160</x>
-        <y>140</y>
-        <width>421</width>
-        <height>20</height>
+        <x>150</x>
+        <y>61</y>
+        <width>141</width>
+        <height>21</height>
        </rect>
       </property>
-      <property name="styleSheet">
-       <string notr="true">QProgressBar {
-	
-	background-color: rgb(98, 114, 164);
-	color: rgb(200, 200, 200);
-	border-style: none;
-	border-radius: 10px;
-	text-align: center;
-}
-QProgressBar::chunk{
-	border-radius: 10px;
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));
-}</string>
-      </property>
-      <property name="maximum">
-       <number>100</number>
-      </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-      <property name="format">
-       <string>%p%</string>
-      </property>
-     </widget>
-     <widget class="QProgressBar" name="pbSpendMoneyEuro">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>170</y>
-        <width>421</width>
-        <height>20</height>
-       </rect>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">QProgressBar {
-	
-	background-color: rgb(98, 114, 164);
-	color: rgb(200, 200, 200);
-	border-style: none;
-	border-radius: 10px;
-	text-align: center;
+       <string notr="true">QLineEdit{
+border: 2px solid rgb(37,39,48);
+border-radius: 10px;
+color: #FFF;
+padding-left: 20px;
+padding-right: 20px;
+background-color: rgb(34,36,44);
+color:rgb(0,0,255);
 }
-QProgressBar::chunk{
-	border-radius: 10px;
-	background-color: qlineargradient(spread:pad, x1:0, y1:0.511364, x2:1, y2:0.523, stop:0 rgba(254, 121, 199, 255), stop:1 rgba(170, 85, 255, 255));
-}</string>
+QLineEdit:hover { border: 2px solid rgb(48,50,62);}QLineEdit:focus{border:2px solid rgb(48,50,60)n}</string>
       </property>
-      <property name="maximum">
-       <number>100</number>
+      <property name="text">
+       <string>TKA.DE</string>
       </property>
-      <property name="value">
-       <number>0</number>
-      </property>
-      <property name="format">
-       <string>%p%</string>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
-    </widget>
-    <widget class="QFrame" name="frameHistory">
-     <property name="geometry">
-      <rect>
-       <x>730</x>
-       <y>10</y>
-       <width>161</width>
-       <height>481</height>
-      </rect>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QLabel" name="lblHistory">
+     <widget class="QLabel" name="lblpricestocks">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>10</y>
-        <width>91</width>
-        <height>28</height>
+        <x>20</x>
+        <y>100</y>
+        <width>51</width>
+        <height>21</height>
        </rect>
       </property>
       <property name="font">
        <font>
         <family>Segoe UI</family>
-        <pointsize>16</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
+        <pointsize>14</pointsize>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(88, 150, 250);
+       <string notr="true">color: rgb(88, 1, 200);
  border-top: 0px solid blue; 
  border-left: 0px solid blue; 
  border-right: 0px solid blue; 
  border-bottom: 0px solid blue; </string>
       </property>
       <property name="text">
-       <string>History</string>
+       <string>Price:</string>
       </property>
      </widget>
-     <widget class="QListWidget" name="listwidgethistory">
+     <widget class="QLabel" name="lblsymbolstock">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>50</y>
-        <width>141</width>
-        <height>421</height>
+        <x>20</x>
+        <y>60</y>
+        <width>71</width>
+        <height>21</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(255, 0, 0);
+       <string notr="true">color: rgb(88, 1, 200);
  border-top: 0px solid blue; 
  border-left: 0px solid blue; 
  border-right: 0px solid blue; 
  border-bottom: 0px solid blue; </string>
       </property>
+      <property name="text">
+       <string>Symbol:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblpricestocks_2">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>100</y>
+        <width>131</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(88, 1, 200);
+ border-top: 0px solid blue; 
+ border-left: 0px solid blue; 
+ border-right: 0px solid blue; 
+ border-bottom: 0px solid blue; </string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnGetStock">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>160</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+border: 2px solid rgb(37,39,48);
+border-radius: 10px;
+color: #FFF;
+padding-left: 20px;
+padding-right: 20px;
+background-color: rgb(34,36,44);
+color:rgb(0,0,255);
+}</string>
+      </property>
+      <property name="text">
+       <string>Get</string>
+      </property>
      </widget>
     </widget>
-    <zorder>frame</zorder>
-    <zorder>frameAccountStatistic</zorder>
-    <zorder>frameHistory</zorder>
    </widget>
    <zorder>frmCompanyFormular</zorder>
+   <zorder>frmDashboard</zorder>
+   <zorder>frmFormular</zorder>
    <zorder>frameup</zorder>
    <zorder>frameleft</zorder>
    <zorder>btn_minimize</zorder>
@@ -2283,8 +2493,7 @@ QProgressBar::chunk{
    <zorder>btn_close</zorder>
    <zorder>frametop</zorder>
    <zorder>framdown</zorder>
-   <zorder>frmFormular</zorder>
-   <zorder>frmDashboard</zorder>
+   <zorder>frmStocks</zorder>
   </widget>
  </widget>
  <resources>
