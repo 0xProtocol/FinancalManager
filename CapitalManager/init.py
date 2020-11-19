@@ -2,19 +2,21 @@ import datetime
 import json
 import sys
 
-from PySide2 import QtCore
-from PySide2.QtGui import (QColor)
-from PySide2.QtWidgets import *
+from PyQt5 import QtWidgets, uic
+from PyQt5 import QtCore
+from PyQt5.QtGui import QColor
+from PyQt5.QtWidgets import QListWidgetItem, QGraphicsDropShadowEffect, QApplication
 from yahoo_fin import stock_info as si
 from ui_main import Ui_MainWindow
 from ui_splash_screen import Ui_SplashScreen
+from StocksGraph import get_data
 
 counter = 0
 Accounts = []
 
 
 # Main Window
-class MainWindow(QMainWindow):
+class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     netsalary = 0
     Account1 = 0
     Account2 = 0
@@ -23,21 +25,22 @@ class MainWindow(QMainWindow):
     currencycounter = 0
     euroboolean = 0
 
-    def __init__(self):
-        QMainWindow.__init__(self)
+    def __init__(self, *args, obj=None, **kwargs):
+        super(MainWindow, self).__init__(*args, **kwargs)
+        self.setupUi(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        #self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.ReadConfig()
         self.ui.btnDashboard.clicked.connect(self.btnDashboard_Clicked)
         self.btnDashboard_Clicked()
         self.ui.btnFormular.clicked.connect(self.btnFormular_Clicked)
         self.ui.btnSettings.clicked.connect(self.btnSettings_Clicked)
-        self.ui.btnCompanyFormular.clicked.connect(self.btnCompanyFormular)
-        self.ui.btnSend.clicked.connect(self.btnSend)
-        self.ui.btnSend_2.clicked.connect(self.btnSend_2)
-        self.ui.btnSpend.clicked.connect(self.btnSpend)
+        self.ui.btnCompanyFormular.clicked.connect(self.btnCompanyFormular_Clicked)
+        self.ui.btnSend.clicked.connect(self.btnSend_Clicked)
+        self.ui.btnSend_2.clicked.connect(self.btnSend_2_Clicked)
+        self.ui.btnSpend.clicked.connect(self.btnSpend_Clicked)
         self.ui.btn_close.clicked.connect(self.btnClose)
         self.ui.btn_maximize.clicked.connect(self.btnMaximize)
         self.ui.btn_minimize.clicked.connect(self.btnMinimize)
@@ -45,7 +48,7 @@ class MainWindow(QMainWindow):
         self.ui.btnCurrency.clicked.connect(self.btncurrencyclicked)
         self.ui.lbldate.setText(datetime.datetime.today().strftime('%d-%b-%Y'))
         self.ui.btnGetStock.clicked.connect(self.btngetstock)
-        self.ui.btnStocks.clicked.connect(self.btnStocks)
+        self.ui.btnStocks.clicked.connect(self.btnStocks_Clicked)
 
     def GetStock(self):
         stockprice = si.get_live_price(self.ui.lblstockname.text())
@@ -177,15 +180,15 @@ class MainWindow(QMainWindow):
         self.ui.lblname.setText("Settings")
         print("btnsettings")
 
-    def btnCompanyFormular(self):
+    def btnCompanyFormular_Clicked(self):
         self.ui.frmCompanyFormular.raise_()
         self.ui.lblname.setText("Company Formular")
         print("btncompanyformular")
 
-    def btnStocks(self):
+    def btnStocks_Clicked(self):
         self.ui.frmStocks.raise_()
 
-    def btnSend(self):
+    def btnSend_Clicked(self):
         MainWindow.netsalary = MainWindow.netsalary + float(self.ui.lineEdit.text())
         item = QListWidgetItem()
         item.setForeground(QColor('#00ff00'))
@@ -253,7 +256,7 @@ class MainWindow(QMainWindow):
         self.SaveConfig()
         print("Money sent!")
 
-    def btnSend_2(self):
+    def btnSend_2_Clicked(self):
         if MainWindow.euroboolean == 1:
             self.ui.pbAccount1.setFormat(str(MainWindow.Account1) + " €")
             self.ui.pbAccount2.setFormat(str(MainWindow.Account2) + " €")
@@ -273,7 +276,7 @@ class MainWindow(QMainWindow):
             self.ProgressBarValuesrefresh()
         print("Get")
 
-    def btnSpend(self):
+    def btnSpend_Clicked(self):
         print(self.ui.cbspendmoney.currentText())
         if self.ui.cbspendmoney.currentText() == "Account 1":
             MainWindow.Account1 = MainWindow.Account1 - (float(self.ui.lespend.text()))
@@ -336,9 +339,11 @@ class MainWindow(QMainWindow):
 
 
 # SPLASH SCREEN
-class SplashScreen(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
+class SplashScreen(QtWidgets.QMainWindow, Ui_SplashScreen):
+
+    def __init__(self, *args, obj=None, **kwargs):
+        super(SplashScreen, self).__init__(*args, **kwargs)
+        self.setupUi(self)
         self.ui = Ui_SplashScreen()
         self.ui.setupUi(self)
 
@@ -404,6 +409,7 @@ class SplashScreen(QMainWindow):
 
 
 if __name__ == "__main__":
-    app = QApplication(sys.argv)
+    app = QtWidgets.QApplication(sys.argv)
     window = SplashScreen()
-    sys.exit(app.exec_())
+    window.show()
+    app.exec()

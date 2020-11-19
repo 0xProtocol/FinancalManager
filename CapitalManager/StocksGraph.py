@@ -53,4 +53,3 @@ def get_data(ticker):
         print('No data found for {t}')
 
 
-get_data(UK_Stock)

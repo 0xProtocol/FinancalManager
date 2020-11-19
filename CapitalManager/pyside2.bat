@@ -1,1 +1,2 @@
-C:\Users\ldr\AppData\Local\Programs\Python\Python36\Scripts\pyside2-uic.exe main.ui -o ui_main.py
+C:\Users\ldr\AppData\Local\Programs\Python\Python36\Scripts\pyuic5.exe main.ui -o ui_main.py
+C:\Users\ldr\AppData\Local\Programs\Python\Python36\Scripts\pyuic5.exe splash_screen2.ui -o ui_splash_screen.py
