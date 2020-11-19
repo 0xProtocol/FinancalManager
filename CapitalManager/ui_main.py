@@ -1166,6 +1166,33 @@ class Ui_MainWindow(object):
 "color:rgb(0,0,255);\n"
 "}")
         self.btnGetStock.setObjectName("btnGetStock")
+        self.framStocksLastSearched = QtWidgets.QFrame(self.frmStocks)
+        self.framStocksLastSearched.setGeometry(QtCore.QRect(730, 10, 161, 481))
+        self.framStocksLastSearched.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.framStocksLastSearched.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.framStocksLastSearched.setObjectName("framStocksLastSearched")
+        self.lblStocks_2 = QtWidgets.QLabel(self.framStocksLastSearched)
+        self.lblStocks_2.setGeometry(QtCore.QRect(10, 10, 91, 28))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(16)
+        font.setBold(False)
+        font.setWeight(50)
+        self.lblStocks_2.setFont(font)
+        self.lblStocks_2.setStyleSheet("color: rgb(88, 150, 250);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.lblStocks_2.setObjectName("lblStocks_2")
+        self.listgetstocks = QtWidgets.QListWidget(self.framStocksLastSearched)
+        self.listgetstocks.setGeometry(QtCore.QRect(10, 50, 141, 421))
+        self.listgetstocks.setStyleSheet("color: rgb(255, 255, 255);\n"
+" border-top: 0px solid blue; \n"
+" border-left: 0px solid blue; \n"
+" border-right: 0px solid blue; \n"
+" border-bottom: 0px solid blue; ")
+        self.listgetstocks.setObjectName("listgetstocks")
         self.frmCompanyFormular.raise_()
         self.frmDashboard.raise_()
         self.frmFormular.raise_()
@@ -1241,4 +1268,5 @@ class Ui_MainWindow(object):
         self.lblpricestocks.setText(_translate("MainWindow", "Price:"))
         self.lblsymbolstock.setText(_translate("MainWindow", "Symbol:"))
         self.btnGetStock.setText(_translate("MainWindow", "Get"))
+        self.lblStocks_2.setText(_translate("MainWindow", "Tickets"))
 import main_rc

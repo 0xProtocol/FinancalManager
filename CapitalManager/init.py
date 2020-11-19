@@ -24,6 +24,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     Account4 = 0
     currencycounter = 0
     euroboolean = 0
+    ticketlist = []
+    listcounter = 0
 
     def __init__(self, *args, obj=None, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
@@ -31,7 +33,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        #self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.ReadConfig()
         self.ui.btnDashboard.clicked.connect(self.btnDashboard_Clicked)
         self.btnDashboard_Clicked()
@@ -51,13 +53,23 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ui.btnStocks.clicked.connect(self.btnStocks_Clicked)
 
     def GetStock(self):
-        stockprice = si.get_live_price(self.ui.lblstockname.text())
-        stockprice = format(stockprice, '.2f')
-        self.ui.lblpricestocks_2.setText(str(stockprice) + " €")
+        try:
+            MainWindow.listcounter=0
+            stockprice = si.get_live_price(self.ui.lblstockname.text())
+            stockprice = format(stockprice, '.2f')
+            for i in MainWindow.ticketlist:
+                if self.ui.lblstockname.text() == i:
+                    MainWindow.listcounter += 1
+            if MainWindow.listcounter == 0:
+                MainWindow.ticketlist.append(self.ui.lblstockname.text())
+            self.ui.lblpricestocks_2.setText(str(stockprice) + " €")
+        except:
+            print('fail')
 
     def btngetstock(self):
         self.GetStock()
-        #get_data("TKA.DE")
+        get_data(self.ui.lblstockname.text())
+        # get_data("TKA.DE")
 
     def btncurrencyclicked(self):
         if (MainWindow.currencycounter % 2 == 1):
@@ -187,6 +199,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def btnStocks_Clicked(self):
         self.ui.frmStocks.raise_()
+        self.ui.listgetstocks.clear()
+        for i in MainWindow.ticketlist:
+            self.ui.listgetstocks.addItem(i)
 
     def btnSend_Clicked(self):
         MainWindow.netsalary = MainWindow.netsalary + float(self.ui.lineEdit.text())

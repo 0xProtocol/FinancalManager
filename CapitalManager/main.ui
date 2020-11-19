@@ -2482,6 +2482,67 @@ color:rgb(0,0,255);
       </property>
      </widget>
     </widget>
+    <widget class="QFrame" name="framStocksLastSearched">
+     <property name="geometry">
+      <rect>
+       <x>730</x>
+       <y>10</y>
+       <width>161</width>
+       <height>481</height>
+      </rect>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="lblStocks_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>91</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI</family>
+        <pointsize>16</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(88, 150, 250);
+ border-top: 0px solid blue; 
+ border-left: 0px solid blue; 
+ border-right: 0px solid blue; 
+ border-bottom: 0px solid blue; </string>
+      </property>
+      <property name="text">
+       <string>Tickets</string>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="listgetstocks">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>141</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+ border-top: 0px solid blue; 
+ border-left: 0px solid blue; 
+ border-right: 0px solid blue; 
+ border-bottom: 0px solid blue; </string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <zorder>frmCompanyFormular</zorder>
    <zorder>frmDashboard</zorder>
