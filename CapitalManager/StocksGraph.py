@@ -1,9 +1,10 @@
+from datetime import datetime
+
+import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
 from pandas_datareader import data
 from pandas_datareader._utils import RemoteDataError
-import matplotlib.pyplot as plt
-import numpy as np
-from datetime import datetime
 
 Start_Date = '1973-01-01'
 End_Date = str(datetime.now().strftime('%Y-%m-%d'))
@@ -39,7 +40,6 @@ def create_plot(stock_data, ticker):
     plt.ylabel('Adj Close (p)')
     plt.legend()
     plt.title('Stock Price over Time.')
-
     plt.show()
 
 

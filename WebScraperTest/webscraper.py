@@ -1,36 +1,57 @@
-from get_all_tickers.get_tickers as
-# tickers of all exchanges
-tickers = gt()
-print(tickers[:5])
+from datetime import datetime
 
-# tickers from NYSE and NASDAQ only
-tickers = get_tickers(AMEX=False)
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from pandas_datareader import data
+from pandas_datareader._utils import RemoteDataError
 
-# default filename is tickers.csv, to specify, add argument filename='yourfilename.csv'
-save_tickers()
+Start_Date = '1973-01-01'
+End_Date = str(datetime.now().strftime('%Y-%m-%d'))
 
-# save tickers from NYSE and AMEX only
-save_tickers(NASDAQ=False)
+UK_Stock = 'TKA.DE'
+USA_Stock = 'TKA.DE'
 
-# get tickers from Asia
-tickers_asia = get_tickers_by_region(Region.ASIA)
-print(tickers_asia[:5])
 
-# save tickers from Europe
-save_tickers_by_region(Region.EUROPE, filename='EU_tickers.csv')
+def get_stats(stock_data):
+    return {
+        'last': np.mean(stock_data.tail(1)),
+        'short_mean_': np.mean(stock_data.tail(20)),
+        'long_mean': np.mean(stock_data.tail(20)),
+        'short_rolling': np.mean(stock_data.tail(20)),
+        'long_rolling': np.mean(stock_data.tail(20))
+    }
 
-# get tickers filtered by market cap (in millions)
-filtered_tickers = get_tickers_filtered(mktcap_min=500, mktcap_max=2000)
-print(filtered_tickers[:5])
 
-# not setting max will get stocks with $2000 million market cap and up.
-filtered_tickers = get_tickers_filtered(mktcap_min=2000)
-print(filtered_tickers[:5])
+def clean_data(stock_data, col):
+    weekdays = pd.date_range(start=Start_Date, end=End_Date)
+    clean_data = stock_data[col].reindex(weekdays)
+    return clean_data.fillna(method='ffill')
 
-# get tickers filtered by sector
-filtered_by_sector = get_tickers_filtered(mktcap_min=200e3, sectors=SectorConstants.FINANCE)
-print(filtered_by_sector[:5])
 
-# get tickers of 5 largest companies by market cap (specify sectors=SECTOR)
-top_5 = get_biggest_n_tickers(5)
-print(top_5)
+def create_plot(stock_data, ticker):
+    stats = get_stats(stock_data)
+    plt.style.use('dark_background')
+    plt.subplots(figsize=(12, 8))
+    plt.plot(stock_data, label=ticker)
+    plt.plot(stats['short_rolling'], label='20 day rolling mean')
+    plt.plot(stats['long_rolling'], label='200 day rolling mean')
+    plt.xlabel('Date')
+    plt.ylabel('Adj Close (p)')
+    plt.legend()
+    plt.title('Stock Price over Time.')
+
+    plt.show()
+
+
+def get_data(ticker):
+    try:
+        stock_data = data.DataReader(ticker, 'yahoo', Start_Date, End_Date)
+        adj_close = clean_data(stock_data, 'Adj Close')
+        create_plot(adj_close, ticker)
+
+    except RemoteDataError:
+        print('No data found for {t}')
+
+get_data(USA_Stock)
+

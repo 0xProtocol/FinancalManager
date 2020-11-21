@@ -2,14 +2,15 @@ import datetime
 import json
 import sys
 
-from PyQt5 import QtWidgets, uic
 from PyQt5 import QtCore
+from PyQt5 import QtWidgets
 from PyQt5.QtGui import QColor
-from PyQt5.QtWidgets import QListWidgetItem, QGraphicsDropShadowEffect, QApplication
+from PyQt5.QtWidgets import QListWidgetItem, QGraphicsDropShadowEffect
 from yahoo_fin import stock_info as si
+
+from StocksGraph import get_data
 from ui_main import Ui_MainWindow
 from ui_splash_screen import Ui_SplashScreen
-from StocksGraph import get_data
 
 counter = 0
 Accounts = []
@@ -24,8 +25,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     Account4 = 0
     currencycounter = 0
     euroboolean = 0
+    ticketcounter = 0
+    ticketboolean = 0
     ticketlist = []
     listcounter = 0
+    listgetdividents = []
+    string = ""
 
     def __init__(self, *args, obj=None, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
@@ -36,7 +41,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.ReadConfig()
         self.ui.btnDashboard.clicked.connect(self.btnDashboard_Clicked)
-        self.btnDashboard_Clicked()
+        #self.btnDashboard_Clicked()
         self.ui.btnFormular.clicked.connect(self.btnFormular_Clicked)
         self.ui.btnSettings.clicked.connect(self.btnSettings_Clicked)
         self.ui.btnCompanyFormular.clicked.connect(self.btnCompanyFormular_Clicked)
@@ -51,24 +56,82 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.ui.lbldate.setText(datetime.datetime.today().strftime('%d-%b-%Y'))
         self.ui.btnGetStock.clicked.connect(self.btngetstock)
         self.ui.btnStocks.clicked.connect(self.btnStocks_Clicked)
+        self.ui.btnTicketDividents.clicked.connect(self.btnTicketDividents_Clicked)
+
+    def btnTicketDividents_Clicked(self):
+        if (MainWindow.ticketcounter % 2 == 1):
+            self.ui.btnTicketDividents.setStyleSheet(u"QPushButton {\n"
+                                                     "	border: none;\n"
+                                                     "	border-radius: 6px;		\n"
+                                                     "	background-color: rgb(0, 150, 240);\n"
+                                                     "}\n"
+                                                     "QPushButton:hover {		\n"
+                                                     "		background-color: rgb(0, 200, 255);\n"
+                                                     "}")
+            MainWindow.ticketboolean = 0
+            self.ui.lblStocks_2.setText("Tickets")
+            self.ui.listgetstocks.clear()
+            for i in MainWindow.ticketlist:
+                self.ui.listgetstocks.addItem(i)
+
+        else:
+            self.ui.btnTicketDividents.setStyleSheet(u"QPushButton {\n"
+                                                     "	border: none;\n"
+                                                     "	border-radius: 6px;		\n"
+                                                     "	background-color: rgb(200, 0, 0);\n"
+                                                     "}\n"
+                                                     "QPushButton:hover {		\n"
+                                                     "		background-color: rgb(255, 0,0);\n"
+                                                     "}")
+            self.ui.lblStocks_2.setText("Dividents")
+            MainWindow.ticketboolean = 1
+
+            self.ui.listgetstocks.clear()
+            self.ui.listgetstocks.addItem(MainWindow.string)
+
+        MainWindow.ticketcounter += 1
 
     def GetStock(self):
         try:
-            MainWindow.listcounter=0
+            MainWindow.listcounter = 0
             stockprice = si.get_live_price(self.ui.lblstockname.text())
             stockprice = format(stockprice, '.2f')
             for i in MainWindow.ticketlist:
-                if self.ui.lblstockname.text() == i:
+                if self.ui.lblstockname.text().upper() == i.upper():
                     MainWindow.listcounter += 1
             if MainWindow.listcounter == 0:
-                MainWindow.ticketlist.append(self.ui.lblstockname.text())
+                MainWindow.ticketlist.append(self.ui.lblstockname.text().upper())
             self.ui.lblpricestocks_2.setText(str(stockprice) + " €")
+            self.GetDividents()
+            self.ui.lblmarketcap_2.setText(si.get_quote_table(self.ui.lblstockname.text().upper())["Market Cap"])
+            previousclose = si.get_quote_table(self.ui.lblstockname.text().upper())["Previous Close"]
+            #print ((float(stockprice) - float(previousclose)))
+            percent = (float(stockprice) / float(previousclose)*100)-100
+            percent = format(percent, '.2f')
+            if float(percent)>0:
+                self.ui.lblChanges.setStyleSheet("color: lightgreen;\n"
+                                                 " border-top: 0px solid blue; \n"
+                                                 " border-left: 0px solid blue; \n"
+                                                 " border-right: 0px solid blue; \n"
+                                                 " border-bottom: 0px solid blue; ")
+            else:
+                self.ui.lblChanges.setStyleSheet("color: darkred;\n"
+                                                 " border-top: 0px solid blue; \n"
+                                                 " border-left: 0px solid blue; \n"
+                                                 " border-right: 0px solid blue; \n"
+                                                 " border-bottom: 0px solid blue; ")
+            self.ui.lblChanges.setText(percent + " %")
+
         except:
             print('fail')
+
+    def GetDividents(self):
+        MainWindow.string = str(si.get_dividends(self.ui.lblstockname.text()))
 
     def btngetstock(self):
         self.GetStock()
         get_data(self.ui.lblstockname.text())
+        self.SaveConfig()
         # get_data("TKA.DE")
 
     def btncurrencyclicked(self):
@@ -144,7 +207,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def SaveConfig(self):
         config = {'key1': f'{MainWindow.netsalary}', 'key2': f'{MainWindow.Account1}', 'key3': f'{MainWindow.Account2}',
-                  'key4': f'{MainWindow.Account3}', 'key5': f'{MainWindow.Account4}'}
+                  'key4': f'{MainWindow.Account3}', 'key5': f'{MainWindow.Account4}', 'key6': MainWindow.ticketlist}
         with open('config.json', 'w') as f:
             json.dump(config, f)
 
@@ -156,6 +219,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         MainWindow.Account2 = float(config['key3'])
         MainWindow.Account3 = float(config['key4'])
         MainWindow.Account4 = float(config['key5'])
+        for i in config['key6']:
+            MainWindow.ticketlist.append(i)
 
     def btnDashboard_Clicked(self):
         self.ui.frmDashboard.raise_()
@@ -199,9 +264,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def btnStocks_Clicked(self):
         self.ui.frmStocks.raise_()
-        self.ui.listgetstocks.clear()
-        for i in MainWindow.ticketlist:
-            self.ui.listgetstocks.addItem(i)
 
     def btnSend_Clicked(self):
         MainWindow.netsalary = MainWindow.netsalary + float(self.ui.lineEdit.text())
